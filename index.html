@@ -50,6 +50,26 @@ box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);transit
 .tipbox h2{margin:0;font:400 calc(var(--u)*3.2) 'Russo One',sans-serif;color:var(--acc2)}
 .tipbox ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:calc(var(--u)*.7)}
 .tipbox p{margin:0}.tipbox .dim{opacity:.6}
+.panel.lobby{width:min(58vw,calc(var(--u)*74))}
+.lobby .digits div{width:calc(var(--u)*5.2);height:calc(var(--u)*6.4);font-size:calc(var(--u)*3.9)}
+.lobby #roomBox p{font-size:calc(var(--u)*1.55)}
+.lobby .lscroll{flex:1;min-height:0;overflow:auto;width:100%;display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*.9);-webkit-overflow-scrolling:touch;touch-action:pan-y}
+#roomBox{display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*.7)}
+.plist{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.5);justify-content:center;width:100%}
+.plist .pl{padding:calc(var(--u)*.45) calc(var(--u)*1);border-radius:calc(var(--u)*.9);background:rgba(255,255,255,.07);border:1px solid var(--line);font:700 calc(var(--u)*1.65) Rubik,sans-serif}
+.plist .pl i{display:inline-block;width:.8em;height:.8em;border-radius:50%;margin-right:.4em;vertical-align:-.05em}
+.plist .pl small{opacity:.55;font-weight:500}.plist .pl.bot{opacity:.7;border-style:dashed}
+.sets{width:100%;display:flex;flex-direction:column;gap:calc(var(--u)*.7)}
+.sets .sl{font:600 calc(var(--u)*1.3) Rubik,sans-serif;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:calc(var(--u)*.3)}
+.sets .ch{display:flex;flex-wrap:wrap;gap:calc(var(--u)*.45)}
+.sets .ch div{padding:calc(var(--u)*.5) calc(var(--u)*1);border-radius:calc(var(--u)*.8);background:rgba(255,255,255,.07);border:1px solid var(--line);font:600 calc(var(--u)*1.55) Rubik,sans-serif;cursor:pointer}
+.sets .ch div.on{background:linear-gradient(180deg,#ffc04a,#ff6a0a);color:#2a1202;border-color:transparent}
+.sets.ro .ch div{cursor:default}.sets.ro .ch div:not(.on){opacity:.45}
+.lobby .row{width:100%}.lobby .row .btn{flex:1}
+.btn:disabled{opacity:.4;filter:grayscale(1)}
+#tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#tags .tag{position:absolute;left:0;top:0;font:800 calc(var(--u)*1.6) Rubik,sans-serif;text-shadow:0 1px 3px #000,0 0 8px rgba(0,0,0,.8);white-space:nowrap;transform-origin:50% 100%;will-change:transform}
+#hudEnemy.many .hp-row{margin-bottom:calc(var(--u)*.5)}#hudEnemy.many .nm{font-size:calc(var(--u)*1.35)}#hudEnemy.many .hpb{height:calc(var(--u)*1.2)}#hudEnemy.many .hpb em{font-size:calc(var(--u)*1)}
 .namebox input{flex:1;min-width:0;font:700 calc(var(--u)*2.1) Rubik,sans-serif;color:var(--acc2);background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:calc(var(--u)*.9);padding:calc(var(--u)*.8) calc(var(--u)*1.2);-webkit-user-select:text;user-select:text;outline:none}
 .carcard{position:absolute;left:var(--sl);bottom:var(--sb);width:min(32vw,calc(var(--u)*40));padding:calc(var(--u)*1.1) calc(var(--u)*1.6)}
 .carcard h3{margin:0 0 calc(var(--u)*.6) 0;font:800 calc(var(--u)*2.2) Rubik,sans-serif}
@@ -76,7 +96,9 @@ box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);transit
 .shop{position:absolute;right:var(--sr);top:var(--st);bottom:var(--sb);width:min(52vw,calc(var(--u)*84));padding:calc(var(--u)*1.3);display:flex;flex-direction:column;gap:calc(var(--u)*1)}
 .shop .btn.pri{padding:calc(var(--u)*1) 0}
 .cats{display:grid;grid-template-columns:repeat(8,1fr);gap:calc(var(--u)*.6)}
-.cats.few{grid-template-columns:repeat(2,minmax(0,calc(var(--u)*16)))}
+.cats.few{grid-template-columns:repeat(3,minmax(0,calc(var(--u)*14)))}
+.pips{display:flex;gap:calc(var(--u)*.4);margin:calc(var(--u)*.4) 0}.pips i{width:calc(var(--u)*2.4);height:calc(var(--u)*.7);border-radius:9px;background:rgba(255,255,255,.15)}.pips i.on{background:linear-gradient(90deg,#ffc04a,#ff6a0a)}
+.card.na{opacity:.55}.coins{color:#ffd23f;font-weight:800}
 .chip{font:700 calc(var(--u)*1.45) Rubik,sans-serif;color:#dfe2e8;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:calc(var(--u)*.9);padding:calc(var(--u)*.8) 0;cursor:pointer;text-align:center}
 .chip.on{background:linear-gradient(180deg,rgba(255,170,60,.28),rgba(255,110,10,.14));border-color:var(--acc);color:var(--acc2)}
 .items{flex:1;min-height:0;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(var(--u)*30),1fr));gap:calc(var(--u)*.8);align-content:start;padding-right:4px;touch-action:pan-y;-webkit-overflow-scrolling:touch}
@@ -177,7 +199,7 @@ box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);transit
 <canvas id="c"></canvas>
 
 <div id="menu" class="screen">
-  <div class="title"><div class="t1">ДЕРБИ</div><div class="t2">В ГРЯЗИ</div><div class="t3">бои на выживание вдвоём</div></div>
+  <div class="title"><div class="t1">ДЕРБИ</div><div class="t2">В ГРЯЗИ</div><div class="t3">дерби и гонки · до 6 игроков</div></div>
   <div class="col">
     <div class="seg glass" id="modeSeg"><div data-g="derby">Дерби</div><div data-g="race">Гонка</div></div>
     <button class="btn pri" id="bHost">Создать комнату</button>
@@ -204,15 +226,20 @@ box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);transit
 </div></div>
 
 <div id="host" class="screen">
-  <div class="panel glass">
-    <h2 id="hostTitle">КОМНАТА СОЗДАНА</h2>
-    <p>ID комнаты:</p>
-    <div class="digits" id="hostDigits"></div>
-    <p>Скажи этот номер папе — пусть откроет эту же игру и нажмёт «Войти по ID».</p>
-    <button class="btn sm" id="bCopy">Скопировать ссылку на комнату</button>
-    <div class="status" id="hostStatus"></div>
-    <div style="flex:1"></div>
-    <button class="btn" id="bHostCancel">Отмена</button>
+  <div class="panel glass lobby">
+    <h2 id="hostTitle">КОМНАТА</h2>
+    <div class="lscroll">
+      <div id="roomBox">
+        <p>ID комнаты:</p>
+        <div class="digits" id="hostDigits"></div>
+        <p>Друзья и семья открывают эту игру и жмут «Войти по ID». До 6 игроков.</p>
+        <button class="btn sm" id="bCopy">Скопировать ссылку на комнату</button>
+      </div>
+      <div class="plist" id="plist"></div>
+      <div class="sets" id="sets"></div>
+      <div class="status" id="hostStatus"></div>
+    </div>
+    <div class="row"><button class="btn" id="bHostCancel">Отмена</button><button class="btn pri" id="bHostStart">Старт</button></div>
   </div>
 </div>
 
@@ -248,7 +275,8 @@ box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);transit
   <div class="center" id="center"></div>
   <div class="flash" id="flash"></div>
   <button class="btn leave" id="bLeave" title="Выйти">✕</button>
-  <div class="over" id="over"><div class="w" id="overWait"></div><button class="btn pri" id="bRematch">Реванш</button><button class="btn" id="bMenu">В меню</button></div>
+  <div class="over" id="over"><div class="w" id="overWait"></div><button class="btn pri" id="bRematch">Реванш</button><button class="btn" id="bLobby">Сменить карту</button><button class="btn" id="bMenu">В меню</button></div>
+  <div id="tags"></div>
   <div id="popups"></div>
   <div id="race">
     <div class="rbox glass" id="rLap"><div class="k">КРУГ</div><div class="v" id="rLapV">1/3</div></div>
@@ -280,7 +308,7 @@ const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
 const lerp = (a, b, t) => a + (b - a) * t;
 const MOBILE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
 const ARENA_R = 44;
-const VERSION = 'web-5';
+const VERSION = 'web-6';
 
 function mulberry(seed) {
   return function () {
@@ -377,6 +405,7 @@ function sanitizeLoadout(o) {
   r.color = clamp(Math.floor(+o.color || 0), 0, CAT.paints.length - 1);
   r.number = clamp(Math.floor(+o.number || 0), 0, 99);
   r.sport = clamp(Math.floor(+o.sport || 0), 0, 5);
+  for (const k of ['te', 'tt', 'ts']) r[k] = clamp(Math.floor(+o[k] || 0), 0, 3);
   return r;
 }
 function loadLoadout() {
@@ -392,6 +421,7 @@ function statsOf(lo) {
   return s;
 }
 let my = loadLoadout();
+setTimeout(() => { try { syncTune(); } catch (e) { } }, 0);
 
 // =====================================================================
 //  Рендер
@@ -967,7 +997,38 @@ function buildCar(lo, withLights, sport) {
       body.add(extra); body.add(extra.target);
     }
   }
-  return { root, body, paint, bumperMat, tail, wheels, wheelR: r, track, exhaust, stacks, beacon, head, lowerGeo, lowerOrig, hood: V(0, d.hood[1] + 0.05, d.hood[0]), lo, color: new THREE.Color(CAT.paints[lo.color]) };
+  const vis = { root, body, paint, bumperMat, tail, wheels, wheelR: r, track, exhaust, stacks, beacon, head, lowerGeo, lowerOrig, hood: V(0, d.hood[1] + 0.05, d.hood[0]), lo, color: new THREE.Color(CAT.paints[lo.color]) };
+  classifyParts(vis, d);
+  return vis;
+}
+// детали, которые могут отлететь от ударов
+function classifyParts(v, d) {
+  const ex = new Set(v.body.children.slice(0, 3)), m = mats();
+  const parts = { front: [], rear: [], left: [], right: [], top: [] };
+  for (const o of v.body.children) {
+    if (!o.isMesh || ex.has(o) || o.material === m.plastic || o.geometry === GEO.plane || (o.material === v.paint && o.geometry === GEO.cyl8)) continue;
+    const p = o.position, zone = p.z > 1.55 ? 'front' : p.z < -1.55 ? 'rear' : p.y > d.roofY - 0.05 ? 'top' : p.x > 0 ? 'right' : 'left';
+    o.userData.orig = { p: o.position.clone(), q: o.quaternion.clone(), s: o.scale.clone() };
+    parts[zone].push(o);
+  }
+  v.parts = parts; v.lost = []; v.dmg = { front: 0, rear: 0, left: 0, right: 0, top: 0 };
+}
+const _kp = new THREE.Vector3(), _kq = new THREE.Quaternion(), _ks = new THREE.Vector3();
+function knockPart(i, zone) {
+  const v = G.vis[i], c = G.cars[i], A = G.arena; if (!v || !v.parts || !A) return;
+  const list = v.parts[zone].filter(o => o.parent === v.body); if (!list.length) return;
+  const o = list[Math.floor(Math.random() * list.length)];
+  o.updateWorldMatrix(true, false); o.matrixWorld.decompose(_kp, _kq, _ks);
+  v.body.remove(o); A.scene.add(o); o.position.copy(_kp); o.quaternion.copy(_kq); o.scale.copy(_ks);
+  let dx = _kp.x - c.x, dz = _kp.z - c.z; const l = Math.hypot(dx, dz) || 1; dx /= l; dz /= l;
+  G.debris.push({ m: o, part: true, vx: c.vx * 0.5 + dx * (4 + Math.random() * 4), vy: 3 + Math.random() * 4, vz: c.vz * 0.5 + dz * (4 + Math.random() * 4), rx: (Math.random() - 0.5) * 12, rz: (Math.random() - 0.5) * 12, t: 0 });
+  v.lost.push(o);
+}
+function hitParts(i, lp, dmg) {
+  const v = G.vis[i]; if (!v || !v.dmg || dmg < 2) return;
+  const zone = lp.z > 1.1 ? 'front' : lp.z < -1.1 ? 'rear' : lp.x > 0 ? 'right' : 'left';
+  v.dmg[zone] += dmg;
+  while (v.dmg[zone] > 13) { v.dmg[zone] -= 13; knockPart(i, zone); if (Math.random() < 0.35) knockPart(i, 'top'); }
 }
 
 function dentCar(vis, localPt, amount) {
@@ -992,6 +1053,11 @@ function dentCar(vis, localPt, amount) {
   if (changed) { pos.needsUpdate = true; vis.lowerGeo.computeVertexNormals(); }
 }
 function resetDents(vis) {
+  if (vis.lost && vis.lost.length) {
+    for (const o of vis.lost) { if (o.parent) o.parent.remove(o); const r = o.userData.orig; o.position.copy(r.p); o.quaternion.copy(r.q); o.scale.copy(r.s); vis.body.add(o); }
+    G.debris = G.debris.filter(d => !vis.lost.includes(d.m)); vis.lost = [];
+  }
+  if (vis.dmg) for (const k in vis.dmg) vis.dmg[k] = 0;
   vis.lowerGeo.attributes.position.array.set(vis.lowerOrig);
   vis.lowerGeo.attributes.position.needsUpdate = true;
   vis.lowerGeo.computeVertexNormals();
@@ -1077,6 +1143,15 @@ class Particles {
 // =====================================================================
 //  Звук (синтез)
 // =====================================================================
+// характер звука моторов спорткаров: цилиндры, «бас», тембр, турбина
+const SND = [
+  { cyl: 8, sub: 0.6, whine: 0.04, lp: 900, q: 1.2, turbo: 0, vol: 1.1 },
+  { cyl: 10, sub: 0.25, whine: 0.12, lp: 2400, q: 3, turbo: 0, vol: 0.9 },
+  { cyl: 4, sub: 0.2, whine: 0.05, lp: 1600, q: 2, turbo: 1, vol: 0.9 },
+  { cyl: 8, sub: 0.45, whine: 0.05, lp: 1200, q: 1.5, turbo: 0.6, vol: 1 },
+  { cyl: 4, sub: 0.3, whine: 0.08, lp: 1900, q: 2.6, turbo: 0, vol: 0.9 },
+  { cyl: 12, sub: 0.2, whine: 0.3, lp: 3000, q: 2, turbo: 0.5, vol: 0.85 },
+];
 const AudioSys = {
   ctx: null, master: null, crowd: null, crowdGain: null, rainGain: null, noiseBuf: null, engines: [],
   init() {
@@ -1103,7 +1178,8 @@ const AudioSys = {
   },
   engine(i) {
     if (!this.ctx) return null;
-    if (this.engines[i]) return this.engines[i];
+    if (this.engines[i] && this.engines[i].kind === undefined) return this.engines[i];
+    if (this.engines[i]) { try { this.engines[i].g.disconnect(); if (this.engines[i].tg) this.engines[i].tg.disconnect(); } catch (e) { } }
     const o1 = this.ctx.createOscillator(); o1.type = 'sawtooth'; o1.frequency.value = 45;
     const o2 = this.ctx.createOscillator(); o2.type = 'square'; o2.frequency.value = 22.5;
     const lp = this.ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 500;
@@ -1113,20 +1189,62 @@ const AudioSys = {
     o1.start(); o2.start();
     return (this.engines[i] = { o1, o2, lp, g });
   },
-  setEngine(i, speed, thr, alive, boost, pan) {
+  setEngine(i, speed, thr, alive, boost, pan, vol) {
+    if (vol === undefined) vol = 1;
     const e = this.engine(i); if (!e) return;
     const t = this.ctx.currentTime;
     const f = alive ? 38 + Math.abs(speed) * 3.2 + Math.max(0, thr) * 10 + (boost ? 25 : 0) : 25;
     e.o1.frequency.setTargetAtTime(f, t, 0.08); e.o2.frequency.setTargetAtTime(f / 2, t, 0.08);
     e.lp.frequency.setTargetAtTime(300 + f * 8, t, 0.1);
-    e.g.gain.setTargetAtTime(alive ? 0.05 + Math.abs(thr) * 0.04 : 0, t, 0.15);
+    e.g.gain.setTargetAtTime(alive ? (0.05 + Math.abs(thr) * 0.04) * vol : 0, t, 0.15);
   },
-  setRpm(i, rpm, thr, loud) {
-    const e = this.engine(i); if (!e) return;
-    const t = this.ctx.currentTime, f = 22 + rpm / 60 * 1.7;
-    e.o1.frequency.setTargetAtTime(f, t, 0.04); e.o2.frequency.setTargetAtTime(f / 2, t, 0.04);
-    e.lp.frequency.setTargetAtTime(350 + rpm * 0.28, t, 0.06);
-    e.g.gain.setTargetAtTime((0.04 + Math.max(0, thr) * 0.05) * (loud ? 1 : 0.35), t, 0.1);
+  // моторы спорткаров: у каждого свой характер (число цилиндров, тембр, турбина)
+  sport(i, kind) {
+    if (!this.ctx) return null;
+    const old = this.engines[i];
+    if (old && old.kind === kind) return old;
+    if (old) { try { old.g.gain.value = 0; old.g.disconnect(); if (old.tg) old.tg.disconnect(); } catch (e) { } }
+    const K = SND[kind] || SND[0], c = this.ctx;
+    const o1 = c.createOscillator(); o1.type = 'sawtooth';
+    const o2 = c.createOscillator(); o2.type = 'square';
+    const o3 = c.createOscillator(); o3.type = 'triangle';
+    const lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = K.q;
+    const g1 = c.createGain(); g1.gain.value = 1; const g2 = c.createGain(); g2.gain.value = K.sub; const g3 = c.createGain(); g3.gain.value = K.whine;
+    const g = c.createGain(); g.gain.value = 0;
+    o1.connect(g1); o2.connect(g2); o3.connect(g3); g1.connect(lp); g2.connect(lp); g3.connect(g); lp.connect(g); g.connect(this.master);
+    // турбина: свист
+    let to = null, tg = null;
+    if (K.turbo) { to = c.createOscillator(); to.type = 'sine'; tg = c.createGain(); tg.gain.value = 0; to.connect(tg); tg.connect(this.master); to.start(); }
+    o1.start(); o2.start(); o3.start();
+    return (this.engines[i] = { kind, o1, o2, o3, lp, g, to, tg, K, boost: 0, lastThr: 0, gear: -1 });
+  },
+  setRpm(i, rpm, thr, vol, kind, gear) {
+    const e = this.sport(i, kind | 0); if (!e) return;
+    const t = this.ctx.currentTime, K = e.K, f = rpm / 60 * K.cyl / 2;
+    e.o1.frequency.setTargetAtTime(f, t, 0.03); e.o2.frequency.setTargetAtTime(f / 2, t, 0.03); e.o3.frequency.setTargetAtTime(f * 2, t, 0.03);
+    e.lp.frequency.setTargetAtTime(K.lp * (0.55 + Math.max(0, thr) * 0.45) + rpm * 0.12, t, 0.05);
+    const th = Math.max(0, thr);
+    e.g.gain.setTargetAtTime((0.03 + th * 0.05) * K.vol * vol, t, 0.06);
+    if (e.tg) {
+      e.boost = lerp(e.boost, th * clamp((rpm - 2500) / 4000, 0, 1), 0.08);
+      e.to.frequency.setTargetAtTime(1800 + e.boost * 3200, t, 0.05);
+      e.tg.gain.setTargetAtTime(e.boost * 0.012 * K.turbo * vol, t, 0.05);
+      if (e.lastThr > 0.5 && thr < 0.2 && e.boost > 0.35 && vol > 0.5) this.puff(0.05 * K.turbo * vol, 2500);
+    }
+    // переключение передачи: короткий провал и хлопок
+    if (gear !== undefined && e.gear >= 0 && gear !== e.gear && vol > 0.3) {
+      e.g.gain.cancelScheduledValues(t); e.g.gain.setValueAtTime(0.01, t); e.g.gain.setTargetAtTime((0.03 + th * 0.05) * K.vol * vol, t + 0.07, 0.04);
+      if (gear < e.gear) this.puff(0.07 * vol, 500); else this.puff(0.03 * vol, 900);
+    }
+    if (gear !== undefined) e.gear = gear;
+    e.lastThr = thr;
+  },
+  puff(vol, freq) {
+    if (!this.ctx) return;
+    const t = this.ctx.currentTime, src = this.ctx.createBufferSource(); src.buffer = this.noiseBuf;
+    const bp = this.ctx.createBiquadFilter(); bp.type = freq > 1500 ? 'highpass' : 'bandpass'; bp.frequency.value = freq; bp.Q.value = 1.2;
+    const g = this.ctx.createGain(); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.001, t + (freq > 1500 ? 0.35 : 0.12));
+    src.connect(bp); bp.connect(g); g.connect(this.master); src.start(t, Math.random()); src.stop(t + 0.4);
   },
   screech(v) {
     if (!this.ctx) return;
@@ -1138,7 +1256,7 @@ const AudioSys = {
     }
     this.scr.gain.setTargetAtTime(clamp(v, 0, 1) * 0.16, this.ctx.currentTime, 0.05);
   },
-  stopEngines() { for (const e of this.engines) if (e) e.g.gain.value = 0; if (this.scr) this.scr.gain.value = 0; },
+  stopEngines() { for (const e of this.engines) if (e) { e.g.gain.value = 0; if (e.tg) e.tg.gain.value = 0; } if (this.scr) this.scr.gain.value = 0; },
   hit(vol, low) {
     if (!this.ctx) return;
     const t = this.ctx.currentTime;
@@ -1238,7 +1356,8 @@ function buildArena(seed) {
   sc.environment = envTex;
   sc.background = new THREE.Color(0x8a8f9c);
   sc.fog = new THREE.FogExp2(0x9a9696, 0.0022);
-  const A = { scene: sc, puddles: [], tires: [], ramps: [], fans: null };
+  const AR = clamp(((G.set || curSet()).arena | 0), 0, ARENAS.length - 1);
+  const A = { scene: sc, puddles: [], tires: [], ramps: [], fans: null, arena: AR, grip: AR === 3 ? 0.3 : 1 };
 
   // небо — градиентная сфера
   const skyGeo = new THREE.SphereGeometry(900, 32, 16);
@@ -1261,16 +1380,19 @@ function buildArena(seed) {
   sc.add(sun); sc.add(sun.target);
 
   // лужи
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < [12, 4, 0, 0][AR]; i++) {
     const a = rnd() * Math.PI * 2, r = Math.sqrt(rnd()) * (R - 10);
     A.puddles.push({ x: Math.cos(a) * r, z: Math.sin(a) * r, r: 2.5 + rnd() * 3 });
   }
   // грязь
   const mud = texMud(seed, A.puddles);
-  const ground = new THREE.Mesh(new THREE.CircleGeometry(R + 4, 96), new THREE.MeshStandardMaterial({ map: mud.map, roughnessMap: mud.rough, bumpMap: mud.bump, bumpScale: 1.4, roughness: 1, metalness: 0, envMapIntensity: 0.9 }));
+  let gmat;
+  if (AR === 2 || AR === 3) { const cm = texConcrete().map.clone(); cm.repeat.set(14, 14); cm.needsUpdate = true; gmat = AR === 2 ? new THREE.MeshStandardMaterial({ map: cm, color: 0xb8b4ac, roughness: 0.9 }) : new THREE.MeshStandardMaterial({ map: cm, color: 0xe2eef8, roughness: 0.1, metalness: 0.15, envMapIntensity: 1.3 }); }
+  else gmat = new THREE.MeshStandardMaterial({ map: mud.map, roughnessMap: mud.rough, bumpMap: mud.bump, bumpScale: 1.4, roughness: 1, metalness: 0, envMapIntensity: 0.9, color: AR === 1 ? 0xb09a88 : 0xffffff });
+  const ground = new THREE.Mesh(new THREE.CircleGeometry(R + 4, 96), gmat);
   ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; sc.add(ground);
   const gr = texGrass(); gr.map.repeat.set(220, 220);
-  const grass = new THREE.Mesh(new THREE.CircleGeometry(900, 64), new THREE.MeshStandardMaterial({ map: gr.map, roughness: 0.95 }));
+  const grass = new THREE.Mesh(new THREE.CircleGeometry(900, 64), AR === 3 ? new THREE.MeshStandardMaterial({ color: 0xe8eef4, roughness: 0.9 }) : new THREE.MeshStandardMaterial({ map: gr.map, roughness: 0.95 }));
   grass.rotation.x = -Math.PI / 2; grass.position.y = -0.03; sc.add(grass);
 
   // отбойник
@@ -1402,13 +1524,36 @@ function buildArena(seed) {
   }
 
   // шины-препятствия и трамплины
-  A.tires = [[0, 16], [0, -16], [-24, -22], [24, 22]].map(p => ({ x: p[0], z: p[1], r: 1.3 }));
+  A.tires = (AR === 1 ? [[0, 16], [0, -16], [-24, -22], [24, 22], [-30, 8], [30, -8], [10, 30], [-10, -30]] : AR === 2 ? [[0, 18], [0, -18]] : [[0, 16], [0, -16], [-24, -22], [24, 22]]).map(p => ({ x: p[0], z: p[1], r: 1.3 }));
+  // свалка: брошенные ржавые машины
+  if (AR === 1) for (const [x, z, yaw] of [[-16, -8, 0.6], [17, 9, 2.2], [-6, 30, 1.4], [8, -31, -0.4]]) {
+    const v = buildCar(Object.assign(defaultLoadout(), { model: Math.floor(rnd() * 5), color: 7 }), false);
+    v.paint.color.setRGB(0.32, 0.18, 0.1); v.paint.roughness = 1; v.paint.metalness = 0.2;
+    v.root.position.set(x, -0.15, z); v.root.rotation.set(0, yaw, (rnd() - 0.5) * 0.3); sc.add(v.root);
+    for (const w of v.wheels) if (rnd() < 0.5) w.g.visible = false;
+    A.tires.push({ x: x + Math.sin(yaw) * 1.15, z: z + Math.cos(yaw) * 1.15, r: 1.1 }, { x: x - Math.sin(yaw) * 1.15, z: z - Math.cos(yaw) * 1.15, r: 1.1 });
+  }
+  // стройка: бетонные блоки, конусы и кран
+  if (AR === 2) {
+    const cm = new THREE.MeshStandardMaterial({ map: texConcrete().map, roughness: 0.9 });
+    for (const [x, z, yaw] of [[-20, 0, 0], [20, 0, 0], [-9, -14, 1], [9, 14, 1], [-26, 18, 0.5], [26, -18, 0.5]]) {
+      const b = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.0, 3.2), cm); b.position.set(x, 0.5, z); b.rotation.y = yaw; b.castShadow = b.receiveShadow = true; sc.add(b);
+      A.tires.push({ x: x + Math.sin(yaw) * 0.9, z: z + Math.cos(yaw) * 0.9, r: 0.75 }, { x: x - Math.sin(yaw) * 0.9, z: z - Math.cos(yaw) * 0.9, r: 0.75 });
+    }
+    const conM = new THREE.MeshStandardMaterial({ color: 0xff6a10, roughness: 0.6 }), stM = new THREE.MeshStandardMaterial({ color: 0xf0f0f0, roughness: 0.6 });
+    for (let i = 0; i < 18; i++) { const a = rnd() * 6.28, r = 6 + rnd() * (R - 10); const c = new THREE.Mesh(geo('cone1', () => new THREE.ConeGeometry(0.25, 0.75, 12).translate(0, 0.375, 0)), conM); c.position.set(Math.cos(a) * r, 0, Math.sin(a) * r); c.castShadow = true; sc.add(c); const st = new THREE.Mesh(geo('cone2', () => new THREE.CylinderGeometry(0.16, 0.19, 0.1, 12)), stM); st.position.set(c.position.x, 0.4, c.position.z); sc.add(st); }
+    const ym = new THREE.MeshStandardMaterial({ color: 0xf2b20c, metalness: 0.4, roughness: 0.5 });
+    const crane = new THREE.Group(); crane.position.set(-70, 0, -60); sc.add(crane);
+    const tw = new THREE.Mesh(new THREE.BoxGeometry(2.2, 60, 2.2), ym); tw.position.y = 30; crane.add(tw);
+    const jib = new THREE.Mesh(new THREE.BoxGeometry(1.6, 1.6, 55), ym); jib.position.set(0, 60, 14); crane.add(jib);
+    const cw = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 5), new THREE.MeshStandardMaterial({ color: 0x555555 })); cw.position.set(0, 59, -12); crane.add(cw);
+  }
   const tireG = new THREE.TorusGeometry(0.95, 0.38, 12, 28);
   const tm = new THREE.MeshStandardMaterial({ map: texTire(false).map, roughness: 0.85 });
   for (const t of A.tires) for (let k = 0; k < 4; k++) {
     const m = new THREE.Mesh(tireG, tm); m.rotation.set(Math.PI / 2 + (rnd() - 0.5) * 0.08, 0, rnd() * 6); m.position.set(t.x, 0.38 + k * 0.76, t.z); m.castShadow = true; m.receiveShadow = true; sc.add(m);
   }
-  A.ramps = [{ x: -15, z: 27, yaw: Math.PI / 2 }, { x: 15, z: -27, yaw: -Math.PI / 2 }];
+  A.ramps = AR === 2 ? [{ x: -15, z: 27, yaw: Math.PI / 2 }, { x: 15, z: -27, yaw: -Math.PI / 2 }, { x: 27, z: 13, yaw: Math.PI }, { x: -27, z: -13, yaw: 0 }] : AR === 1 ? [{ x: -15, z: 27, yaw: Math.PI / 2 }] : [{ x: -15, z: 27, yaw: Math.PI / 2 }, { x: 15, z: -27, yaw: -Math.PI / 2 }];
   const wood = texWood(); wood.map.repeat.set(2, 3);
   for (const r of A.ramps) {
     const g = new THREE.Group(); g.position.set(r.x, 0, r.z); g.rotation.y = r.yaw; sc.add(g);
@@ -1425,9 +1570,10 @@ function buildArena(seed) {
   const rp = new Float32Array(nDrops * 6);
   for (let i = 0; i < nDrops; i++) { const x = (rnd() - 0.5) * 120, y = rnd() * 30, z = (rnd() - 0.5) * 120; rp.set([x, y, z, x - 0.05, y - 0.9, z + 0.02], i * 6); }
   const rg = new THREE.BufferGeometry(); rg.setAttribute('position', new THREE.BufferAttribute(rp, 3).setUsage(THREE.DynamicDrawUsage));
-  const rain = new THREE.LineSegments(rg, new THREE.LineBasicMaterial({ color: 0xc8d4e4, transparent: true, opacity: 0.35, depthWrite: false }));
+  const rain = new THREE.LineSegments(rg, new THREE.LineBasicMaterial({ color: AR === 3 ? 0xffffff : 0xc8d4e4, transparent: true, opacity: AR === 3 ? 0.85 : 0.35, depthWrite: false }));
   rain.frustumCulled = false; sc.add(rain);
-  A.rain = { geo: rg, arr: rp, n: nDrops };
+  A.rain = { geo: rg, arr: rp, n: nDrops, sp: AR === 3 ? 3 : 24, len: AR === 3 ? 0.12 : 0.9 };
+  if (AR === 1 || AR === 2) { rain.visible = false; A.rain = null; }
 
   // частицы и вспышка
   A.fxA = new Particles(MOBILE ? 600 : 1500, false); sc.add(A.fxA.points);
@@ -1512,11 +1658,11 @@ const G = {
   remoteInput: { th: 0, st: 0, n: false }, debris: [], popups: [],
   WINS: 3, OVERTIME: 60, TRAINING: 10,
 };
-const myIndex = () => G.mode === 'client' ? 1 : 0;
+const myIndex = () => G.mode === 'client' ? (G.myIdx || 1) : 0;
 const damageOn = () => G.ms === 'playing' || G.ms === 'roundover';
 
 function newCar(i, lo) {
-  return { i, lo, st: statsOf(lo), rc: raceParams(lo.sport | 0), x: 0, y: 0, z: 0, vy: 0, yaw: 0, vx: 0, vz: 0, av: 0, hp: 100, nitro: 1, ram: 0, alive: true, boost: false, ground: true,
+  return { i, lo, st: statsOf(lo), rc: raceParams(lo.sport | 0, lo), x: 0, y: 0, z: 0, vy: 0, yaw: 0, vx: 0, vz: 0, av: 0, hp: 100, nitro: 1, ram: 0, alive: true, boost: false, ground: true,
     th: 0, str: 0, cd: 0, input: { th: 0, st: 0, n: false }, ctl: false, pvx: 0, pvz: 0, pitch: 0, roll: 0, flash: 0, spin: 0, steerVis: 0, buf: [], deadShown: false };
 }
 function inPuddle(x, z) {
@@ -1534,9 +1680,11 @@ function rampHeight(x, z) {
   return { h: 0, inside: false };
 }
 function placeCars() {
-  const pos = [[-18, Math.PI / 2], [18, -Math.PI / 2]];
+  const n = G.cars.length;
   G.cars.forEach((c, i) => {
-    Object.assign(c, { x: pos[i][0], z: 0, y: 0, vy: 0, yaw: pos[i][1], vx: 0, vz: 0, av: 0, hp: 100, nitro: 1, ram: 0, alive: true, boost: false, ground: true, cd: 0, ctl: false, deadShown: false, flash: 0 });
+    const a = Math.PI + i / n * Math.PI * 2, r = n > 4 ? 22 : 18, px = Math.cos(a) * r, pz = Math.sin(a) * r;
+    if (c.gone) return;
+    Object.assign(c, { x: px, z: pz, y: 0, vy: 0, yaw: Math.atan2(-px, -pz), vx: 0, vz: 0, av: 0, hp: 100, nitro: 1, ram: 0, alive: true, boost: false, ground: true, cd: 0, ctl: false, deadShown: false, flash: 0 });
     c.buf = [];
     if (G.vis[i]) resetDents(G.vis[i]);
   });
@@ -1557,13 +1705,15 @@ function stepCar(c, dt) {
   if (c.ground) {
     const top = (c.boost ? 38 : 24) * c.st.speed * (mud ? lerp(0.8, 0.9, clamp((c.st.grip - 1) * 6, 0, 1)) : 1);
     let a = 0;
-    if (th > 0) { if (fwd < top) a = 30 * c.st.accel * (c.boost ? 1.7 : 1); }
+    if (th > 0) { if (fwd < top * (c.hp < 35 ? 0.86 : 1)) a = 30 * c.st.accel * (c.boost ? 1.7 : 1) * (G.arena && G.arena.grip < 1 ? 0.65 : 1); }
     else if (th < 0) a = fwd > 1 ? -45 : (fwd > -12 ? -18 : 0);
     else a = -fwd * 0.6;
     c.vx += fx * a * dt; c.vz += fz * a * dt;
     const steerAmt = clamp(fwd / 6, -1, 1);
-    c.av = lerp(c.av, -st * 2.4 * steerAmt, 1 - Math.pow(0.7, dt * 50));
-    const grip = 5 * c.st.grip * (mud ? 0.35 * clamp(c.st.grip, 1, 1.4) : 1);
+    // разбитую машину тянет в сторону
+    const limp = c.hp < 35 && c.alive ? (35 - c.hp) / 35 * 0.55 * (c.i % 2 ? 1 : -1) : 0;
+    c.av = lerp(c.av, (-st * 2.4 + limp) * steerAmt, 1 - Math.pow(G.arena && G.arena.grip < 1 ? 0.88 : 0.7, dt * 50));
+    const grip = 5 * c.st.grip * (mud ? 0.35 * clamp(c.st.grip, 1, 1.4) : 1) * (G.arena ? G.arena.grip || 1 : 1);
     const k = Math.min(1, grip * dt);
     c.vx -= rx * lat * k; c.vz -= rz * lat * k;
   }
@@ -1602,6 +1752,7 @@ function carCircles(c) {
 function collide(dt) {
   const R = ARENA_R, cars = G.cars;
   for (const c of cars) {
+    if (c.gone) continue;
     let hitWall = false, cpx = 0, cpz = 0;
     for (const p of carCircles(c)) {
       const d = Math.hypot(p[0], p[1]);
@@ -1629,8 +1780,11 @@ function collide(dt) {
       else if (imp > 6) { emit({ y: 'bump', a: c.i, f1: 0.25 }); c.cd = 0.3; }
     }
   }
-  const hit = pushCars(cars[0], cars[1]);
-  if (hit) ram(cars[0], cars[1], hit.x, hit.z);
+  for (let i = 0; i < cars.length; i++) for (let j = i + 1; j < cars.length; j++) {
+    if (cars[i].gone || cars[j].gone) continue;
+    const hit = pushCars(cars[i], cars[j]);
+    if (hit) ram(cars[i], cars[j], hit.x, hit.z);
+  }
 }
 function pushCars(a, b) {
   if (!a || !b || Math.abs(a.y - b.y) > 1.6) return null;
@@ -1708,8 +1862,8 @@ function applyEvent(e) {
     case 'ram': {
       const k = clamp(e.f3 / 40, 0, 1);
       const va = G.vis[e.a], vb = G.vis[e.b];
-      if (va) { dentCar(va, toLocal(G.cars[e.a], e.x, e.yy, e.z), e.f1 * 0.008); G.cars[e.a].flash = e.f1 > 0 ? 0.15 : 0; }
-      if (vb) { dentCar(vb, toLocal(G.cars[e.b], e.x, e.yy, e.z), e.f2 * 0.008); G.cars[e.b].flash = e.f2 > 0 ? 0.15 : 0; }
+      if (va) { const lp = toLocal(G.cars[e.a], e.x, e.yy, e.z); dentCar(va, lp, e.f1 * 0.008); hitParts(e.a, lp, e.f1); G.cars[e.a].flash = e.f1 > 0 ? 0.15 : 0; }
+      if (vb) { const lp = toLocal(G.cars[e.b], e.x, e.yy, e.z); dentCar(vb, lp, e.f2 * 0.008); hitParts(e.b, lp, e.f2); G.cars[e.b].flash = e.f2 > 0 ? 0.15 : 0; }
       sparks(e.x, e.yy, e.z, Math.round(10 + e.f3 * 1.5));
       emitDust(e.x, e.z, 12);
       AudioSys.hit(0.15 + k * 0.6, false);
@@ -1730,7 +1884,7 @@ function applyEvent(e) {
       deathVisual(e.a);
       G.cheer = Math.min(1.5, G.cheer + 1);
       shake(1);
-      if (G.mode !== 'client' && G.ms === 'playing') { G.ms = 'roundover'; G.stateTimer = 4.5; G.decided = false; }
+      if (G.mode !== 'client' && G.ms === 'playing' && G.cars.filter(o => o.alive && !o.gone).length <= 1) { G.ms = 'roundover'; G.stateTimer = 4.5; G.decided = false; }
       break;
     }
     case 'pick': sparks(e.x, 1.2, e.z, 25); break;
@@ -1746,7 +1900,7 @@ function deathVisual(i) {
   const c = G.cars[i], v = G.vis[i];
   if (!c || c.deadShown) return;
   c.deadShown = true; c.alive = false;
-  if (v) { v.paint.color.setRGB(0.08, 0.07, 0.065); v.bumperMat.emissive.setRGB(0, 0, 0); }
+  if (v) { v.paint.color.setRGB(0.08, 0.07, 0.065); v.bumperMat.emissive.setRGB(0, 0, 0); if (v.parts) for (const z of ['front', 'rear', 'left', 'right', 'top', 'front']) knockPart(i, z); }
   const A = G.arena; if (!A) return;
   A.fxB.burst(c.x, c.y + 1.2, c.z, 40, 7, 0.9, 1.6, 4, [1, 0.55, 0.15], 1, -0.2, 1);
   A.fxA.burst(c.x, c.y + 1.5, c.z, 30, 4, 3.5, 2, 6, [0.12, 0.11, 0.1], 0.8, -0.15, 1);
@@ -1765,8 +1919,8 @@ function deathVisual(i) {
 }
 
 // ---------- правила (хост и один экран) ----------
-function startTraining() { placeCars(); G.wins = [0, 0]; G.round = 0; G.ms = 'training'; G.stateTimer = G.TRAINING; G.cars.forEach(c => c.ctl = true); cheerEv(1); }
-function startMatchRounds() { G.wins = [0, 0]; G.round = 0; startRound(); }
+function startTraining() { placeCars(); G.wins = G.cars.map(() => 0); G.round = 0; G.ms = 'training'; G.stateTimer = G.TRAINING; G.cars.forEach(c => c.ctl = true); cheerEv(1); }
+function startMatchRounds() { G.wins = G.cars.map(() => 0); G.round = 0; startRound(); }
 function startRound() {
   G.round++; placeCars(); G.pickups = []; G.roundTime = 0; G.overtime = false; G.pickTimer = 3; G.centerText = ''; G.decided = false;
   G.ms = 'countdown'; G.stateTimer = 3;
@@ -1781,7 +1935,7 @@ function simulateRules(dt) {
       break;
     case 'playing':
       G.roundTime += dt;
-      if (!G.overtime && G.roundTime > G.OVERTIME) { G.overtime = true; flash('УРОН x2'); cheerEv(1); }
+      if (!G.overtime && G.roundTime > G.OVERTIME + 12 * Math.max(0, G.cars.length - 2)) { G.overtime = true; flash('УРОН x2'); cheerEv(1); }
       G.pickTimer -= dt;
       if (G.pickTimer <= 0 && G.pickups.length < 4) {
         G.pickTimer = 5;
@@ -1805,19 +1959,21 @@ function simulateRules(dt) {
     case 'roundover':
       if (!G.decided && G.stateTimer < 3.9) {
         G.decided = true;
-        const w = G.cars[0].alive && !G.cars[1].alive ? 0 : (G.cars[1].alive && !G.cars[0].alive ? 1 : -1);
+        const alive = G.cars.filter(o => o.alive && !o.gone);
+        const w = alive.length === 1 ? alive[0].i : -1;
         G.lastWinner = w;
         if (w >= 0) { G.wins[w]++; G.centerText = G.wins[w] >= G.WINS ? G.cars[w].lo.name + ' — ЧЕМПИОН!' : G.cars[w].lo.name + ' выигрывает раунд!'; }
         else G.centerText = 'Ничья!';
       }
       if (G.stateTimer <= 0) {
-        if (G.wins[0] >= G.WINS || G.wins[1] >= G.WINS) { G.ms = 'over'; G.cars.forEach(c => c.ctl = false); cheerEv(1.5); }
+        if (G.wins.some(v => v >= G.WINS)) { G.ms = 'over'; G.cars.forEach(c => c.ctl = false); cheerEv(1.5); }
         else startRound();
       }
       break;
   }
 }
 const PICK_COL = ['#38e65a', '#38d9ff', '#ff3a26'];
+const ARENAS = [{ name: 'Грязь' }, { name: 'Свалка' }, { name: 'Стройка' }, { name: 'Лёд' }];
 
 // =====================================================================
 //  Сеть (PeerJS / WebRTC)
@@ -1832,41 +1988,182 @@ const PREFIX = 'mud-derby-r1-';
   } catch (e) { }
 })();
 const Net = {
-  peer: null, conn: null, roomId: '', lastRecv: 0, sendT: 0, gotState: false, helloT: 0, joinStart: 0, lastHostT: -1, clockOff: 0, clockInit: false,
-  reset() { try { if (this.conn) this.conn.close(); } catch (e) { } try { if (this.peer) this.peer.destroy(); } catch (e) { } this.peer = null; this.conn = null; this.gotState = false; this.lastHostT = -1; this.clockInit = false; },
+  peer: null, conn: null, peers: [], roomId: '', lastRecv: 0, sendT: 0, gotState: false, helloT: 0, joinStart: 0, lastHostT: -1, clockOff: 0, clockInit: false, lobbyT: 0, startT: 0,
+  reset() {
+    try { if (this.conn) this.conn.close(); } catch (e) { }
+    for (const p of this.peers) try { p.conn.close(); } catch (e) { }
+    try { if (this.peer) this.peer.destroy(); } catch (e) { }
+    this.peer = null; this.conn = null; this.peers = []; this.gotState = false; this.lastHostT = -1; this.clockInit = false;
+  },
+  // клиент → хозяину
   send(o) { try { if (this.conn && this.conn.open) this.conn.send(o); } catch (e) { } },
-  // частые сообщения (снимки, управление): если канал занят — пропускаем, свежие важнее старых
-  busy() { const c = this.conn; if (!c) return true; const dc = c.dataChannel || c._dc; return (c.bufferSize || 0) > 0 || (dc && dc.bufferedAmount > 6000); },
+  busyC(c) { if (!c) return true; const dc = c.dataChannel || c._dc; return (c.bufferSize || 0) > 0 || (dc && dc.bufferedAmount > 6000); },
+  busy() { return this.busyC(this.conn); },
   sendFast(o) { if (!this.busy()) this.send(o); },
+  // хозяин → всем гостям (fast: пропустить, если канал занят)
+  bcast(o, fast) { for (const p of this.peers) { if (!p.conn.open || (fast && this.busyC(p.conn))) continue; try { p.conn.send(o); } catch (e) { } } },
+  sendTo(p, o) { try { if (p.conn.open) p.conn.send(o); } catch (e) { } },
 };
+const MAXP = 6, MAXCARS = 8;
 function peerOk() { if (typeof window.Peer === 'undefined') { toast('Нет связи с сервером комнат. Проверь интернет.'); return false; } return true; }
 
-function hostRoom() {
+// ---------- лобби ----------
+const SET = Object.assign({ track: 0, time: 0, weather: 0, bots: 3, arena: 0, dbots: 2 }, (() => { try { return JSON.parse(store.get('derby_set', '{}')) || {}; } catch (e) { return {}; } })());
+function saveSet() { store.set('derby_set', JSON.stringify(SET)); }
+const LOBBY = { players: [], set: null };
+const BOT_NAMES = ['Макс', 'Лиза', 'Тёма', 'Соня', 'Гоша', 'Вика', 'Боря', 'Ника'];
+function botLoadouts(n, used) {
+  const out = [];
+  for (let k = 0; k < n; k++) {
+    let col = Math.floor(Math.random() * CAT.paints.length);
+    for (let t = 0; t < 10 && used.includes(col); t++) col = (col + 1) % CAT.paints.length;
+    used.push(col);
+    out.push(Object.assign(defaultLoadout(), { name: 'Бот ' + BOT_NAMES[k % BOT_NAMES.length], color: col, number: 10 + Math.floor(Math.random() * 89),
+      model: Math.floor(Math.random() * 5), bumper: Math.floor(Math.random() * 4), wheels: Math.floor(Math.random() * 4), armor: Math.floor(Math.random() * 3),
+      roof: Math.floor(Math.random() * 4), rear: Math.floor(Math.random() * 4), sport: Math.floor(Math.random() * 6), bot: true }));
+  }
+  return out;
+}
+function humans() {
+  if (G.mode === 'host') return [my, ...Net.peers.filter(p => p.lo).map(p => p.lo)];
+  if (G.mode === 'client') return LOBBY.players;
+  if (G.mode === 'local') return [my, { name: 'Игрок 2', color: (my.color + 1) % CAT.paints.length }];
+  return [my];
+}
+function curSet() { return G.mode === 'client' ? (LOBBY.set || SET) : SET; }
+function botCount(s, nh) {
+  const want = G.game === 'race' ? s.bots : s.dbots;
+  return clamp(want | 0, 0, MAXCARS - nh);
+}
+function chipsRow(label, key, opts, ro) {
+  const s = curSet();
+  return `<div class="sr"><div class="sl">${label}</div><div class="ch">` + opts.map(o => `<div class="${s[key] === o[0] ? 'on' : ''}" ${ro ? '' : `data-k="${key}" data-v="${o[0]}"`}>${o[1]}</div>`).join('') + `</div></div>`;
+}
+function renderLobby() {
+  const kind = G.mode, race = G.game === 'race', ro = kind === 'client';
+  $('#hostTitle').textContent = kind === 'host' ? (race ? 'КОМНАТА: ГОНКА' : 'КОМНАТА: ДЕРБИ') : kind === 'client' ? (race ? 'ГОНКА' : 'ДЕРБИ') + ' · КОМНАТА ' + Net.roomId
+    : kind === 'local' ? 'ДВОЕ НА ОДНОМ ЭКРАНЕ' : race ? 'ОДИНОЧНАЯ ГОНКА' : 'ПРОТИВ БОТОВ';
+  $('#roomBox').style.display = kind === 'host' ? '' : 'none';
+  const hs = humans(), s = curSet(), nb = botCount(s, hs.length);
+  $('#plist').innerHTML = hs.map((p, i) => `<div class="pl"><i style="background:${CAT.paints[p.color | 0]}"></i>${esc(p.name || 'Игрок')}${i === 0 && (kind === 'host' || kind === 'client') ? ' <small>хозяин</small>' : ''}</div>`).join('') +
+    (nb ? `<div class="pl bot">+ ${nb} ${nb === 1 ? 'бот' : nb < 5 ? 'бота' : 'ботов'}</div>` : '');
+  const cap = MAXCARS - hs.length;
+  let html = '';
+  if (race) {
+    html += chipsRow('Трасса', 'track', TRACKS.map((t, i) => [i, t.name]), ro);
+    html += chipsRow('Время', 'time', [[0, 'День'], [1, 'Закат'], [2, 'Ночь']], ro);
+    html += chipsRow('Погода', 'weather', [[0, 'Ясно'], [1, 'Дождь']], ro);
+    html += chipsRow('Боты', 'bots', [0, 1, 3, 5, 7].filter(v => v <= cap || v === 0).map(v => [v, v ? String(v) : 'Нет']), ro);
+  } else {
+    html += chipsRow('Арена', 'arena', ARENAS.map((a, i) => [i, a.name]), ro);
+    html += chipsRow('Боты', 'dbots', [0, 1, 2, 3, 5].filter(v => v <= cap || v === 0).map(v => [v, v ? String(v) : 'Нет']), ro);
+  }
+  $('#sets').innerHTML = html; $('#sets').classList.toggle('ro', ro);
+  const cars = hs.length + nb, need = race ? (kind === 'host' ? 2 : 1) : 2;
+  $('#bHostStart').style.display = ro ? 'none' : '';
+  $('#bHostStart').disabled = cars < need;
+  $('#bHostCancel').textContent = ro ? 'Выйти' : kind === 'host' ? 'Закрыть комнату' : 'Назад';
+  $('#hostStatus').textContent = kind === 'client' ? 'Ждём, когда хозяин нажмёт «Старт»' : kind === 'host' ? (Net.roomId ? `Игроков: ${hs.length} из ${MAXP}` + (cars < need ? ' — подожди гостей или добавь ботов' : '') : 'Открываем комнату…')
+    : (cars < need ? 'Добавь хотя бы одного бота' : '');
+}
+$('#sets').addEventListener('click', e => {
+  const d = e.target.closest('[data-k]'); if (!d || G.mode === 'client') return;
+  SET[d.dataset.k] = +d.dataset.v; saveSet(); renderLobby();
+  if (G.mode === 'host') broadcastLobby();
+});
+function openLobby(kind) {
   AudioSys.init();
+  G.mode = kind; G.phase = 'lobby';
+  if (kind === 'solo' && G.game === 'derby' && !SET.dbots) { SET.dbots = 2; saveSet(); }
+  setScreen('host'); renderLobby();
+}
+function lobbyMsg() { return { t: 'lobby', game: G.game, set: SET, id: Net.roomId, players: humans().map(p => ({ name: p.name, color: p.color })) }; }
+function broadcastLobby() { if (G.mode !== 'host') return; Net.bcast(lobbyMsg()); renderLobby(); }
+
+function hostRoom() {
   if (!peerOk()) return;
   Net.reset();
+  Net.roomId = '';
+  openLobby('host');
   const id = String(Math.floor(Math.random() * 100000)).padStart(5, '0');
-  G.mode = 'host';
-  setScreen('host');
   setDigits('#hostDigits', '');
-  $('#hostStatus').textContent = 'Открываем комнату…';
   const p = new window.Peer(PREFIX + id, { debug: 0 });
   Net.peer = p;
-  $('#hostTitle').textContent = G.game === 'race' ? 'КОМНАТА: ГОНКА' : 'КОМНАТА: ДЕРБИ';
-  p.on('open', () => { Net.roomId = id; setDigits('#hostDigits', id); $('#hostStatus').textContent = 'Ждём соперника'; history.replaceState(null, '', '#' + id); });
+  p.on('open', () => { Net.roomId = id; setDigits('#hostDigits', id); history.replaceState(null, '', '#' + id); renderLobby(); });
   p.on('error', e => {
     if (e.type === 'unavailable-id') { hostRoom(); return; }
-    if (G.phase === 'menu') $('#hostStatus').textContent = 'Ошибка сети: ' + e.type;
+    if (G.phase === 'lobby') $('#hostStatus').textContent = 'Ошибка сети: ' + e.type;
   });
   p.on('connection', c => {
-    if (Net.conn && Net.conn.open) { try { c.close(); } catch (x) { } return; }
-    Net.conn = c;
-    c.on('data', onNet);
-    c.on('close', () => { if (G.phase === 'match' || G.phase === 'loading') endMatch('Соперник отключился.'); });
-    c.on('open', () => { Net.lastRecv = performance.now(); });
+    const pl = { conn: c, lo: null, idx: -1, input: { th: 0, st: 0, n: false }, remoteCar: null, ready: false, lastRecv: performance.now() };
+    c.on('open', () => {
+      if (Net.peers.length >= MAXP - 1) { try { c.send({ t: 'deny', why: 'В комнате уже ' + MAXP + ' игроков.' }); } catch (e) { } setTimeout(() => { try { c.close(); } catch (e) { } }, 300); return; }
+      if (G.phase !== 'lobby') { try { c.send({ t: 'deny', why: 'Игра уже идёт — зайди, когда хозяин вернётся в комнату.' }); } catch (e) { } setTimeout(() => { try { c.close(); } catch (e) { } }, 300); return; }
+      Net.peers.push(pl);
+    });
+    c.on('data', m => onHostMsg(pl, m));
+    c.on('close', () => peerLeft(pl));
   });
   p.on('disconnected', () => { try { p.reconnect(); } catch (e) { } });
 }
+function peerLeft(pl) {
+  const i = Net.peers.indexOf(pl); if (i < 0) return;
+  Net.peers.splice(i, 1);
+  try { pl.conn.close(); } catch (e) { }
+  if (pl.lo) toast(pl.lo.name + ' вышел из игры', 3);
+  if (G.phase === 'lobby') broadcastLobby();
+  else if (G.phase === 'match' && pl.idx >= 0 && G.cars[pl.idx]) {
+    const c = G.cars[pl.idx];
+    c.gone = true; c.ctl = false; c.alive = false; c.vx = c.vz = 0;
+    if (G.vis[pl.idx]) G.vis[pl.idx].root.visible = false;
+  }
+}
+function onHostMsg(pl, m) {
+  if (!m || typeof m !== 'object') return;
+  pl.lastRecv = performance.now();
+  if (m.t === 'hello') {
+    if (m.v !== VERSION) { Net.sendTo(pl, { t: 'deny', why: 'У вас разные версии игры — обновите страницу у всех.' }); return; }
+    if (!Net.peers.includes(pl)) return;
+    const first = !pl.lo;
+    pl.lo = sanitizeLoadout(m.lo);
+    Net.sendTo(pl, { t: 'welcome', v: VERSION, id: Net.roomId });
+    if (first) { toast(pl.lo.name + ' зашёл в комнату', 3); broadcastLobby(); }
+    else Net.sendTo(pl, lobbyMsg());
+  } else if (m.t === 'ready') {
+    pl.ready = true;
+  } else if (m.t === 'in') {
+    pl.input = { th: clamp(+m.a || 0, -1, 1), st: clamp(+m.b || 0, -1, 1), n: !!m.n };
+    if (Array.isArray(m.p) && m.p.length >= 16 && m.r === G.round && G.game === 'race') pl.remoteCar = m.p;
+  } else if (m.t === 'bye') peerLeft(pl);
+}
+function hostStart() {
+  if (G.mode === 'host') {
+    if (G.phase !== 'lobby') return;
+    const ps = Net.peers.filter(p => p.lo);
+    const list = [Object.assign({}, my)];
+    ps.forEach((p, k) => { p.idx = k + 1; p.ready = false; p.remoteCar = null; list.push(p.lo); });
+    Net.peers.filter(p => !p.lo).forEach(p => p.idx = -1);
+    G.players = list.concat(botLoadouts(botCount(SET, list.length), list.map(l => l.color)));
+    G.seed = 1 + Math.floor(Math.random() * 1e9);
+    G.startMsg = { t: 'start', seed: G.seed, game: G.game, set: SET, players: G.players };
+    for (const p of ps) Net.sendTo(p, Object.assign({ me: p.idx }, G.startMsg));
+    Net.startT = performance.now();
+  } else {
+    const list = humans().map((h, i) => i === 0 ? Object.assign({}, my) : Object.assign({}, my, { name: 'Игрок 2', color: (my.color + 1) % CAT.paints.length, number: (my.number + 7) % 100 }));
+    G.players = list.concat(botLoadouts(botCount(SET, list.length), list.map(l => l.color)));
+    G.seed = 1 + Math.floor(Math.random() * 1e9);
+  }
+  beginLoading();
+}
+// хозяин возвращает всех в комнату (сменить трассу/арену)
+function backToLobby() {
+  disposeMatch();
+  G.phase = 'lobby';
+  setScreen('host');
+  if (G.mode === 'host') { Net.peers.forEach(p => { p.idx = -1; p.ready = false; }); broadcastLobby(); Net.bcast({ t: 'back' }); }
+  renderLobby();
+}
+
 function joinRoom(id) {
   AudioSys.init();
   if (!/^\d{5}$/.test(id)) { $('#joinStatus').textContent = 'Нужно ввести 5 цифр'; return; }
@@ -1874,6 +2171,7 @@ function joinRoom(id) {
   Net.reset();
   G.mode = 'client';
   G.joining = true;
+  Net.roomId = id;
   $('#joinStatus').textContent = 'Ищу комнату ' + id + '…';
   Net.joinStart = performance.now();
   const p = new window.Peer({ debug: 0 });
@@ -1883,7 +2181,7 @@ function joinRoom(id) {
     Net.conn = c;
     c.on('open', () => { Net.lastRecv = performance.now(); sendHello(); });
     c.on('data', onNet);
-    c.on('close', () => { if (G.phase === 'match' || G.phase === 'loading') endMatch('Хозяин закрыл комнату.'); });
+    c.on('close', () => { if (G.phase === 'match' || G.phase === 'loading' || G.phase === 'lobby') endMatch('Хозяин закрыл комнату.'); });
   });
   p.on('error', e => {
     if (e.type === 'peer-unavailable') { $('#joinStatus').textContent = 'Комната ' + id + ' не найдена. Проверь цифры.'; G.joining = false; Net.reset(); }
@@ -1892,44 +2190,46 @@ function joinRoom(id) {
 }
 function sendHello() { Net.send({ t: 'hello', v: VERSION, lo: my }); }
 
+// сообщения у гостя
 function onNet(m) {
-  if (!m || typeof m !== 'object') return;
+  if (!m || typeof m !== 'object' || G.mode !== 'client') return;
   Net.lastRecv = performance.now();
-  if (G.mode === 'host') {
-    if (m.t === 'hello') {
-      if (m.v !== VERSION) { $('#hostStatus').textContent = 'У соперника другая версия игры — обновите страницу.'; return; }
-      G.remoteLo = sanitizeLoadout(m.lo);
-      if (G.phase === 'menu') { G.seed = 1 + Math.floor(Math.random() * 1e9); $('#hostStatus').textContent = G.remoteLo.name + ' подключается…'; beginLoading(); }
-      Net.send({ t: 'welcome', v: VERSION, seed: G.seed, lo: my, game: G.game });
-    } else if (m.t === 'ready') {
-      if (G.phase === 'match' && G.ms === 'wait') { if (G.game === 'race') startRace(); else startTraining(); }
-    } else if (m.t === 'in') {
-      G.remoteInput = { th: clamp(+m.a || 0, -1, 1), st: clamp(+m.b || 0, -1, 1), n: !!m.n };
-      if (Array.isArray(m.p) && m.p.length >= 16 && m.r === G.round && G.game === 'race') G.remoteCar = m.p;
-    } else if (m.t === 'bye') endMatch('Соперник вышел из игры.');
-  } else if (G.mode === 'client') {
-    if (m.t === 'welcome') {
-      if (m.v !== VERSION) { $('#joinStatus').textContent = 'У хозяина другая версия игры — обновите страницу.'; return; }
-      if (G.phase !== 'menu') return;
-      G.seed = m.seed | 0; G.remoteLo = sanitizeLoadout(m.lo); G.game = m.game === 'race' ? 'race' : 'derby';
-      G.joining = false;
-      beginLoading();
-    } else if (m.t === 's') { if (G.phase === 'match') readState(m); }
-    else if (m.t === 'bye') endMatch('Хозяин закрыл комнату.');
-  }
+  if (m.t === 'deny') { $('#joinStatus').textContent = m.why || 'Нельзя зайти'; G.joining = false; if (G.phase !== 'menu') endMatch(m.why); else Net.reset(); return; }
+  if (m.t === 'welcome') {
+    if (m.v !== VERSION) { $('#joinStatus').textContent = 'У хозяина другая версия игры — обновите страницу.'; return; }
+    if (G.joining) { G.joining = false; G.phase = 'lobby'; setScreen('host'); renderLobby(); }
+  } else if (m.t === 'lobby') {
+    LOBBY.players = (m.players || []).slice(0, MAXP).map(p => ({ name: String(p.name || 'Игрок').slice(0, 14), color: clamp(p.color | 0, 0, CAT.paints.length - 1) }));
+    LOBBY.set = Object.assign({}, SET, m.set || {});
+    G.game = m.game === 'race' ? 'race' : 'derby';
+    if (G.phase === 'match' || G.phase === 'loading') { disposeMatch(); G.phase = 'lobby'; setScreen('host'); }
+    if (G.joining) { G.joining = false; G.phase = 'lobby'; setScreen('host'); }
+    if (G.phase === 'lobby') renderLobby();
+  } else if (m.t === 'back') {
+    if (G.phase === 'match' || G.phase === 'loading') { disposeMatch(); G.phase = 'lobby'; setScreen('host'); renderLobby(); }
+  } else if (m.t === 'start') {
+    if (G.phase !== 'lobby' && G.phase !== 'menu') return;
+    G.joining = false;
+    G.seed = m.seed | 0; G.game = m.game === 'race' ? 'race' : 'derby';
+    LOBBY.set = Object.assign({}, SET, m.set || {});
+    G.players = (m.players || []).slice(0, MAXCARS).map(p => Object.assign(sanitizeLoadout(p), { bot: !!p.bot }));
+    G.myIdx = clamp(m.me | 0, 1, G.players.length - 1);
+    beginLoading();
+  } else if (m.t === 's') { if (G.phase === 'match') readState(m); }
+  else if (m.t === 'bye') endMatch('Хозяин закрыл комнату.');
 }
 const r2 = v => Math.round(v * 100) / 100;
 function sendState() {
   const now = performance.now() / 1000;
   G.evLog = G.evLog.filter(e => now - e.t < 1.5);
-  Net.send({
+  Net.bcast({
     t: 's', T: r2(now), m: G.ms, st: r2(G.stateTimer), rt: r2(G.roundTime), r: G.round, w: G.wins, o: G.overtime, d: G.decided, c: G.centerText, ch: r2(G.cheer),
-    k: G.cars.map(c => [r2(c.x), r2(c.y), r2(c.z), Math.round(c.yaw * 1000) / 1000, r2(c.pitch), r2(c.roll), r2(c.vx), r2(c.vz), r2(c.hp), r2(c.nitro), r2(c.ram), (c.alive ? 1 : 0) | (c.boost ? 2 : 0) | (c.ground ? 4 : 0), r2(c.th), r2(c.str),
+    k: G.cars.map(c => [r2(c.x), r2(c.y), r2(c.z), Math.round(c.yaw * 1000) / 1000, r2(c.pitch), r2(c.roll), r2(c.vx), r2(c.vz), r2(c.hp), r2(c.nitro), r2(c.ram), (c.alive ? 1 : 0) | (c.boost ? 2 : 0) | (c.ground ? 4 : 0) | (c.gone ? 8 : 0), r2(c.th), r2(c.str),
       c.lap | 0, Math.round(c.s || 0), Math.round(c.rpm || 0), c.gear | 0, r2(c.slip || 0), c.surf | 0, r2(c.best || 0), r2(c.lapStart || 0), c.finished ? 1 : 0, r2(c.finishT || 0), r2(c.lastLap || 0)]),
     lw: G.lastWinner, rt2: r2(G.raceTime || 0), ft: r2(G.finishTimer || 0), res: G.results || undefined,
     p: G.pickups.length ? G.pickups.map(p => [p.id, p.type, r2(p.x), r2(p.z)]) : undefined,
     e: !G.evLog.length ? undefined : G.evLog.map(e => ({ i: e.i, y: e.y, a: e.a, b: e.b, x: e.x, yy: e.yy, z: e.z, f1: e.f1, f2: e.f2, f3: e.f3, tx: e.tx, c: e.c }))
-  });
+  }, true);
 }
 function readState(s) {
   if (typeof s.T !== 'number' || s.T <= Net.lastHostT) return;
@@ -1948,7 +2248,8 @@ function readState(s) {
     c.vx = k[6]; c.vz = k[7]; c.hp = k[8]; c.nitro = k[9]; c.ram = k[10];
     const alive = !!(k[11] & 1);
     if (alive && !c.alive) { c.deadShown = false; if (G.vis[i]) resetDents(G.vis[i]); }
-    c.alive = alive; c.boost = !!(k[11] & 2); c.ground = !!(k[11] & 4); c.th = k[12]; c.str = k[13];
+    c.alive = alive; c.boost = !!(k[11] & 2); c.ground = !!(k[11] & 4);
+    if ((k[11] & 8) && !c.gone) { c.gone = true; if (G.vis[i]) G.vis[i].root.visible = false; } c.th = k[12]; c.str = k[13];
     if (k.length > 14) { c.lap = k[14]; c.s = k[15]; c.rpm = k[16]; c.gear = k[17]; c.slip = k[18]; c.surf = k[19]; c.best = k[20]; c.lapStart = k[21]; c.finished = !!k[22]; c.finishT = k[23]; c.lastLap = k[24]; }
     if (reset) c.marks = [null, null];
   });
@@ -1969,9 +2270,8 @@ function readOwnRaceCar(c, k, reset) {
   }
 }
 // у хозяина: машина соперника в гонке подтягивается к тому, что прислал его телефон
-function applyRemoteCar() {
-  const p = G.remoteCar; if (!p) return; G.remoteCar = null;
-  const c = G.cars[1]; if (!c) return;
+function applyRemoteCar(c, p) {
+  if (!c || c.gone) return;
   const d = Math.hypot(c.x - p[0], c.z - p[2]), k = d > 4 ? 1 : 0.6;
   c.x = lerp(c.x, p[0], k); c.z = lerp(c.z, p[2], k); c.y = p[1];
   let dy = p[3] - c.yaw; dy = Math.atan2(Math.sin(dy), Math.cos(dy)); c.yaw += dy * k;
@@ -1997,21 +2297,47 @@ function interpCar(c, rt) {
 // =====================================================================
 //  ГОНКИ: большая трасса и реалистичная физика
 // =====================================================================
-const RACE = { LAPS: 3, W: 14, WALL: 13,
-  pts: [[0, 0], [300, 0], [560, 10], [760, 70], [880, 190], [920, 320], [890, 410], [820, 425], [770, 370], [700, 310], [580, 320], [480, 380], [430, 480], [480, 600], [620, 660], [700, 640], [760, 680], [920, 700], [990, 820], [930, 950], [760, 1000], [560, 960], [420, 1030], [250, 1060], [100, 1000], [-20, 880], [-60, 740], [-180, 640], [-330, 630], [-430, 520], [-400, 380], [-300, 300], [-200, 200], [-230, 90], [-140, 10]],
-  LAKE: [190, 470, 85] };
+// =====================================================================
+//  Трассы
+// =====================================================================
+const TRACKS = [
+  { name: 'Лесное кольцо', theme: 'forest', hill: 1, grade: 0.08, mu: 1, lake: [190, 470, 85],
+    pts: [[0, 0], [300, 0], [560, 10], [760, 70], [880, 190], [920, 320], [890, 410], [820, 425], [770, 370], [700, 310], [580, 320], [480, 380], [430, 480], [480, 600], [620, 660], [700, 640], [760, 680], [920, 700], [990, 820], [930, 950], [760, 1000], [560, 960], [420, 1030], [250, 1060], [100, 1000], [-20, 880], [-60, 740], [-180, 640], [-330, 630], [-430, 520], [-400, 380], [-300, 300], [-200, 200], [-230, 90], [-140, 10]] },
+  { name: 'Пустыня', theme: 'desert', hill: 0.7, grade: 0.07, mu: 1,
+    pts: [[0, 0], [500, 0], [800, 60], [950, 250], [900, 480], [700, 560], [520, 500], [400, 620], [450, 820], [300, 950], [50, 900], [-100, 700], [-60, 500], [-250, 400], [-350, 200], [-200, 30]] },
+  { name: 'Снежный перевал', theme: 'snow', hill: 1.1, grade: 0.08, mu: 0.86,
+    pts: [[0, 0], [250, 0], [420, 80], [460, 250], [360, 330], [220, 280], [120, 360], [200, 500], [380, 560], [420, 720], [250, 820], [50, 760], [-60, 600], [-200, 560], [-300, 400], [-220, 250], [-260, 100], [-150, 10]] },
+  { name: 'Ночной город', theme: 'city', hill: 0, grade: 0.05, mu: 1, night: true,
+    pts: [[0, 0], [530, 0], [590, 55], [590, 390], [530, 450], [365, 450], [310, 505], [310, 730], [250, 785], [-225, 785], [-280, 730], [-280, 280], [-225, 225], [-110, 225], [-56, 170], [-56, 90], [-30, 25]] },
+  { name: 'Горный серпантин', theme: 'mountain', hill: 0.5, grade: 0.11, mu: 1, slope: 0.09,
+    pts: [[0, 0], [300, 0], [500, 40], [560, 140], [420, 180], [250, 170], [200, 240], [380, 290], [560, 300], [600, 380], [450, 430], [250, 420], [150, 480], [200, 580], [420, 620], [600, 650], [700, 760], [600, 880], [350, 900], [100, 850], [-80, 720], [-150, 500], [-180, 250], [-130, 80]] },
+];
+function trackIdx() { const s = G.set || curSet(); return clamp(s.track | 0, 0, TRACKS.length - 1); }
+function curTrack() { return TRACKS[trackIdx()]; }
+// сцепление с дорогой: снег и дождь делают дорогу скользкой
+function trackGrip() { const t = curTrack(), s = G.set || curSet(); return t.mu * (s.weather ? (t.theme === 'snow' ? 0.9 : 0.82) : 1); }
+const RACE = { LAPS: 3, W: 14, WALL: 13 };
 const sstep = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
-// естественный рельеф: холмы, горы вдали, озеро
+// естественный рельеф: холмы, горы вдали, склон для серпантина
 function natH(x, z, d) {
+  const tr = curTrack();
   let h = (noise(x / 430 + 9, z / 430 + 9, 64, 64, 771) - 0.5) * 90 + (noise(x / 170 + 9, z / 170 + 9, 128, 128, 772) - 0.5) * 34 + (noise(x / 60 + 9, z / 60 + 9, 256, 256, 773) - 0.5) * 5;
-  h *= sstep(110, 380, Math.hypot(x - 120, z - 5)) * (TK ? TK.ys : 1);
-  if (d !== undefined) h += sstep(200, 640, d) * (35 + 150 * noise(x / 520 + 3, z / 520 + 3, 64, 64, 774)) + sstep(120, 260, d) * (noise(x / 90 + 3, z / 90 + 3, 128, 128, 775) - 0.3) * 14;
+  h *= tr.hill;
+  if (tr.slope) h += z * tr.slope;
+  const st = TRACKS[trackIdx()].pts[0];
+  h *= sstep(110, 380, Math.hypot(x - st[0] - 120, z - st[1] - 5)) * (TK ? TK.ys : 1);
+  if (d !== undefined) {
+    const far = tr.theme === 'city' ? 0.15 : tr.theme === 'desert' ? 0.7 : tr.theme === 'mountain' ? 1.5 : 1;
+    h += sstep(200, 640, d) * (35 + 150 * noise(x / 520 + 3, z / 520 + 3, 64, 64, 774)) * far + sstep(120, 260, d) * (noise(x / 90 + 3, z / 90 + 3, 128, 128, 775) - 0.3) * 14 * (tr.theme === 'city' ? 0 : 1);
+  }
   return h;
 }
 let TK = null;
 function trackData() {
-  if (TK) return TK;
-  const P = RACE.pts, n = P.length, dense = [];
+  const id = trackIdx();
+  if (TK && TK.id === id) return TK;
+  TK = null; TR = null; miniBase = null;
+  const tr = TRACKS[id], P = tr.pts, n = P.length, dense = [];
   for (let i = 0; i < n; i++) {
     const p0 = P[(i - 1 + n) % n], p1 = P[i], p2 = P[(i + 1) % n], p3 = P[(i + 2) % n];
     for (let k = 0; k < 120; k++) {
@@ -2035,7 +2361,6 @@ function trackData() {
   for (let i = 0; i < N; i++) { const a = (i - 2 + N) % N, b = (i + 2) % N; k[i] = (tx[a] * tz[b] - tz[a] * tx[b]) / (4 * ds); }
   const ks = new Float32Array(N);
   for (let i = 0; i < N; i++) { let sum = 0; for (let o = -6; o <= 6; o++) sum += k[(i + o + N) % N]; ks[i] = sum / 13; }
-  // высота трассы: рельеф под ней, сильно сглаженный, уклон не круче ~8%
   let y = new Float32Array(N);
   for (let i = 0; i < N; i++) y[i] = natH(x[i], z[i]);
   for (let pass = 0; pass < 3; pass++) {
@@ -2045,16 +2370,15 @@ function trackData() {
     y = y2;
   }
   let mg = 0; for (let i = 0; i < N; i++) mg = Math.max(mg, Math.abs(y[(i + 1) % N] - y[i]) / ds);
-  const ys = mg > 0.08 ? 0.08 / mg : 1;
+  const ys = mg > tr.grade ? tr.grade / mg : 1;
   const grade = new Float32Array(N);
   for (let i = 0; i < N; i++) y[i] *= ys;
   for (let i = 0; i < N; i++) grade[i] = (y[(i + 1) % N] - y[(i - 1 + N) % N]) / (2 * ds);
-  // сетка для быстрого поиска расстояния до трассы
   const grid = new Map(), cell = 25;
   for (let i = 0; i < N; i += 2) { const key = Math.floor(x[i] / cell) + ',' + Math.floor(z[i] / cell); if (!grid.has(key)) grid.set(key, []); grid.get(key).push(i); }
   let minX = 1e9, maxX = -1e9, minZ = 1e9, maxZ = -1e9;
   for (let i = 0; i < N; i++) { minX = Math.min(minX, x[i]); maxX = Math.max(maxX, x[i]); minZ = Math.min(minZ, z[i]); maxZ = Math.max(maxZ, z[i]); }
-  TK = { L, N, ds, ys, x, z, y, grade, tx, tz, k: ks, grid, cell, minX, maxX, minZ, maxZ };
+  TK = { id, L, N, ds, ys, x, z, y, grade, tx, tz, k: ks, grid, cell, minX, maxX, minZ, maxZ };
   return TK;
 }
 const trackY = s => { const T = trackData(), f = s / T.ds, i = Math.floor(f), a = ((i % T.N) + T.N) % T.N; return lerp(T.y[a], T.y[(a + 1) % T.N], f - i); };
@@ -2062,7 +2386,7 @@ const trackGrade = s => { const T = trackData(), i = ((Math.round(s / T.ds) % T.
 // рельеф: сетка высот. Рядом с трассой земля ровно под дорогой, дальше — холмы и горы
 let TR = null;
 function terrainData() {
-  if (TR && TR.step === [16, 12, 8][qLevel()]) return TR;
+  if (TR && TR.step === [16, 12, 8][qLevel()] && TR.id === trackIdx()) return TR;
   const T = trackData(), M = 760, step = [16, 12, 8][qLevel()];
   const x0 = T.minX - M, z0 = T.minZ - M;
   const nx = Math.ceil((T.maxX - T.minX + 2 * M) / step) + 1, nz = Math.ceil((T.maxZ - T.minZ + 2 * M) / step) + 1;
@@ -2086,7 +2410,7 @@ function terrainData() {
     }
   }
   const h = new Float32Array(nx * nz), lim = RACE.W / 2 + RACE.WALL;
-  const [lx, lz, lr] = RACE.LAKE, cellOf = (px, pz) => clamp(Math.round((pz - z0) / step), 0, nz - 1) * nx + clamp(Math.round((px - x0) / step), 0, nx - 1);
+  const [lx, lz, lr] = curTrack().lake || [1e6, 1e6, 1], cellOf = (px, pz) => clamp(Math.round((pz - z0) / step), 0, nz - 1) * nx + clamp(Math.round((px - x0) / step), 0, nx - 1);
   let lakeC = 1e9;
   for (let a = 0; a < 32; a++) { const px = lx + Math.cos(a / 32 * 6.283) * (lr + 70), pz = lz + Math.sin(a / 32 * 6.283) * (lr + 70); lakeC = Math.min(lakeC, natH(px, pz, dist[cellOf(px, pz)])); }
   lakeC -= 1.5;
@@ -2097,7 +2421,7 @@ function terrainData() {
     if (dl < lr + 130) { const bowl = lakeC - 6 + 8 * sstep(lr - 45, lr + 20, dl); nh = lerp(bowl, Math.max(nh, lakeC + 1), sstep(lr + 20, lr + 130, dl)); }
     h[c] = lerp(T.y[near[c]] - 0.06, nh, sstep(lim + 3, lim + 48, d));
   }
-  TR = { x0, z0, nx, nz, step, h, dist, near, lakeY: lakeC };
+  TR = { id: trackIdx(), x0, z0, nx, nz, step, h, dist, near, lakeY: lakeC };
   return TR;
 }
 function terrainY(x, z) {
@@ -2140,7 +2464,7 @@ function trackLocate(c, full) {
 function placeRaceCars() {
   const T = trackData();
   G.cars.forEach((c, i) => {
-    const s = T.L - 14 - i * 9, idx = Math.round(s / T.ds) % T.N;
+    const s = T.L - 14 - Math.floor(i / 2) * 11 - (i % 2) * 4, idx = Math.round(s / T.ds) % T.N;
     const lat = G.cars.length > 1 ? (i % 2 ? 3.2 : -3.2) : 0;
     Object.assign(c, { x: T.x[idx] - T.tz[idx] * lat, z: T.z[idx] + T.tx[idx] * lat, y: T.y[idx] + 0.05, vx: 0, vz: 0, av: 0, yaw: Math.atan2(T.tx[idx], T.tz[idx]),
       steer: 0, gear: 0, rpm: 900, ax: 0, slip: 0, hb: false, hbT: 9, grade: 0, tIdx: idx, lap: 0, lapStart: 0, lapTimes: [], best: 0, lastLap: 0, finished: false, finishT: 0,
@@ -2163,15 +2487,16 @@ function stepRace(c, dt) {
   const off = Math.abs(c.lat || 0) - RACE.W / 2;
   const kerb = off > -0.3 && off < 1.4 && Math.abs(T.k[ti]) > 1 / 110;
   const grass = off > (kerb ? 1.4 : 0.3);
-  const P = c.rc || (c.rc = raceParams(c.lo ? c.lo.sport | 0 : 0)), Mm = P.m;
-  const mu = (grass ? 0.62 : kerb ? 0.95 : 1.08) * P.grip;
+  const P = c.rc || (c.rc = raceParams(c.lo ? c.lo.sport | 0 : 0, c.lo)), Mm = P.m;
+  const tg = G.tgrip || 1, th0 = G.tTheme;
+  const mu = (grass ? (th0 === 'desert' ? 0.55 : th0 === 'snow' ? 0.5 : 0.62) : (kerb ? 0.95 : 1.08) * tg) * P.grip;
   c.surf = grass ? 2 : kerb ? 1 : 0;
   c.hbT = hb ? 0 : (c.hbT || 0) + dt;
   // руль: на скорости угол меньше и поворачивается плавнее; при заносе руль сам немного ловит машину
   const beta = spd > 4 ? Math.atan2(v, Math.abs(u)) : 0;
   const maxSteer = lerp(0.55, 0.085, clamp(spd / 42, 0, 1));
   const target = clamp(stIn * maxSteer + clamp(beta * 0.6, -0.3, 0.3), -0.6, 0.6);
-  const rate = lerp(3.2, 1.5, clamp(spd / 40, 0, 1)) * dt;
+  const rate = lerp(3.2, 1.5, clamp(spd / 40, 0, 1)) * (1 + 0.06 * (P.susp || 0)) * dt;
   c.steer += clamp(target - c.steer, -rate, rate);
   // коробка передач (автомат)
   const gr = RC.gears[c.gear] * P.fin;
@@ -2267,8 +2592,12 @@ function raceAfterStep(c, dt, noLaps) {
   } else if (prevS < T.L * 0.25 && c.s > T.L * 0.75) c.lap--;
 }
 function raceCollide() {
-  const hit = pushCars(G.cars[0], G.cars[1]);
-  if (hit && hit.rv > 3 && G.cars[0].cd <= 0) { emit({ y: 'wall', a: 0, x: hit.x, yy: G.cars[0].y + 0.7, z: hit.z, f1: 0 }); G.cars[0].cd = G.cars[1].cd = 0.4; }
+  const cs = G.cars;
+  for (let i = 0; i < cs.length; i++) for (let j = i + 1; j < cs.length; j++) {
+    if (cs[i].gone || cs[j].gone) continue;
+    const hit = pushCars(cs[i], cs[j]);
+    if (hit && hit.rv > 3 && cs[i].cd <= 0) { emit({ y: 'wall', a: i, x: hit.x, yy: cs[i].y + 0.7, z: hit.z, f1: 0 }); cs[i].cd = cs[j].cd = 0.4; }
+  }
 }
 function raceOrder() {
   return G.cars.slice().sort((a, b) => (Number(b.finished) - Number(a.finished)) || (a.finished ? a.finishT - b.finishT : (b.lap * 1e5 + b.s) - (a.lap * 1e5 + a.s)));
@@ -2279,8 +2608,8 @@ function startRace() {
 }
 function finishRace() {
   G.ms = 'results';
-  G.results = raceOrder().map(c => ({ i: c.i, name: c.lo.name, t: c.finished ? c.finishT : -1, best: c.best || 0 }));
-  if (G.cars.length > 1 && G.results[0].t >= 0) G.wins[G.results[0].i]++;
+  G.results = raceOrder().filter(c => !c.gone).map(c => ({ i: c.i, name: c.lo.name, t: c.finished ? c.finishT : -1, best: c.best || 0 }));
+  if (G.cars.length > 1 && G.results[0] && G.results[0].t >= 0) G.wins[G.results[0].i]++;
   G.cars.forEach(c => c.ctl = false);
   if (G.mode === 'solo') { const b = +store.get('derby_best', '0'); const me = G.cars[0]; if (me.best && (!b || me.best < b)) store.set('derby_best', String(me.best)); }
   cheerEv(1.5);
@@ -2290,9 +2619,9 @@ function simulateRace(dt) {
   if (G.ms === 'countdown' && G.stateTimer <= 0) { G.ms = 'racing'; G.cars.forEach(c => c.ctl = true); cheerEv(1); }
   else if (G.ms === 'racing') {
     G.raceTime += dt;
-    const fin = G.cars.filter(c => c.finished).length;
-    if (fin > 0 && fin < G.cars.length) { if (!G.finishTimer) G.finishTimer = 30; G.finishTimer -= dt; }
-    if (fin === G.cars.length || G.finishTimer < 0) finishRace();
+    const act = G.cars.filter(c => !c.gone), fin = act.filter(c => c.finished).length, hum = act.filter(c => !c.bot), hfin = hum.filter(c => c.finished).length;
+    if (fin > 0 && fin < act.length) { if (!G.finishTimer) G.finishTimer = 30; G.finishTimer -= dt; }
+    if (fin === act.length || G.finishTimer < 0 || (hum.length && hfin === hum.length && G.finishTimer < 22)) finishRace();
   }
 }
 const fmtT = t => { if (!(t > 0)) return '—'; const m = Math.floor(t / 60), s = t - m * 60; return m + ':' + (s < 10 ? '0' : '') + s.toFixed(1); };
@@ -2333,17 +2662,39 @@ const SPORTS = [
     roof: [[0.05, 0.2], [-0.2, 0.215], [-0.45, 0.21]], hl: [0.72, -0.31, 2.18, 0.6], tl: -0.12, wing: 'big', fin: true, side: true, exh: 'center', vents: true, cal: 0xf2731a },
 ];
 // физика машины из её характеристик: мощность, масса, макс. скорость
-function raceParams(k) {
-  const s = SPORTS[k] || SPORTS[0], v = s.vmax / 3.6;
+// ---------- тюнинг и монеты ----------
+const TUNE = [
+  { key: 'te', name: 'Мотор', desc: 'Больше мощности и макс. скорость', fx: l => `+${l * 8}% мощности` },
+  { key: 'tt', name: 'Шины', desc: 'Лучше держат дорогу в поворотах', fx: l => `+${(l * 3.5).toFixed(1).replace('.0', '')}% сцепления` },
+  { key: 'ts', name: 'Подвеска', desc: 'Меньше кренов, быстрее руль', fx: l => `+${l * 6}% отзывчивости` },
+];
+const TUNE_PRICE = [150, 350, 700];
+let TUNES = (() => { try { return JSON.parse(store.get('derby_tune', '{}')) || {}; } catch (e) { return {}; } })();
+function coins() { return Math.max(0, +store.get('derby_coins', '0') | 0); }
+function addCoins(n) { store.set('derby_coins', String(coins() + n)); }
+function syncTune() { const t = TUNES[my.sport] || [0, 0, 0]; my.te = t[0] | 0; my.tt = t[1] | 0; my.ts = t[2] | 0; }
+function buyTune(j) {
+  const t = TUNES[my.sport] || [0, 0, 0], l = t[j] | 0;
+  if (l >= 3) return;
+  const pr = TUNE_PRICE[l];
+  if (coins() < pr) { toast(`Нужно ${pr} монет — побеждай в гонках и дерби!`, 3); return; }
+  addCoins(-pr); t[j] = l + 1; TUNES[my.sport] = t; store.set('derby_tune', JSON.stringify(TUNES)); syncTune(); saveLoadout();
+  toast(`${TUNE[j].name}: уровень ${l + 1}!`, 2.5); AudioSys.init(); AudioSys.hit(0.25, false);
+}
+function raceParams(k, lo) {
+  const s0 = SPORTS[k] || SPORTS[0], te = lo ? lo.te | 0 : 0, tt = lo ? lo.tt | 0 : 0, ts = lo ? lo.ts | 0 : 0;
+  const s = { hp: s0.hp * (1 + 0.08 * te), vmax: s0.vmax * (1 + 0.025 * te), mass: s0.mass, grip: s0.grip * (1 + 0.035 * tt + 0.012 * ts) };
+  const v = s.vmax / 3.6;
   let peak = 0; for (let rpm = 1000; rpm <= 7600; rpm += 100) peak = Math.max(peak, engineTorque(rpm) * rpm / 9.549);
   const tq = s.hp * 745.7 / peak;
   const fin = 7600 / 9.549 * RC.wr / RC.gears[5] / (v * 1.04);
   const rpmTop = v / RC.wr * RC.gears[5] * fin * 9.549;
   const F = engineTorque(rpmTop) * tq * RC.gears[5] * fin * 0.9 / RC.wr;
-  return { m: s.mass, Iz: s.mass * 2, tq, fin, cda: Math.max(0.2, (F - 160) / (v * v)), grip: s.grip };
+  return { m: s.mass, Iz: s.mass * 2 * (1 - 0.04 * ts), tq, fin, cda: Math.max(0.2, (F - 160) / (v * v)), grip: s.grip, susp: ts };
 }
 function sportStats(k) {
-  const s = SPORTS[k];
+  const b = SPORTS[k], tn = TUNES[k] || [0, 0, 0];
+  const s = { hp: Math.round(b.hp * (1 + 0.08 * tn[0])), vmax: Math.round(b.vmax * (1 + 0.025 * tn[0])), mass: b.mass, grip: b.grip * (1 + 0.035 * tn[1] + 0.012 * tn[2]) };
   return [['Мощность', s.hp + ' л.с.', (s.hp - 200) / 800], ['Макс. скорость', s.vmax + ' км/ч', (s.vmax - 220) / 150], ['Масса', s.mass + ' кг', 1 - (s.mass - 1100) / 700], ['Сцепление', '', (s.grip - 0.9) / 0.32]];
 }
 function sportRows(k) {
@@ -2663,24 +3014,37 @@ function addStand(sc, fanList, i0, side, len, rows, along) {
     p.position.set(T.x[i0] + rx * side * o2 + tx * a, y0 + (rows * 0.6 + 9) / 2 - 4.5 + 3.4, T.z[i0] + rz * side * o2 + tz * a); sc.add(p);
   }
 }
+// небо и свет: тема трассы + время суток
+function skyLook(theme, time) {
+  const L = { top: 0x2f62b8, mid: 0xd6e6f4, bot: 0x8a9a86, fog: 0xb9cde4, sun: 0xfff0dc, si: 2.3, hs: 0xd8e6ff, hg: 0x5a6a3a, hi: 0.75, sunY: 90, fogK: 1, exp: 1.05 };
+  if (theme === 'desert') Object.assign(L, { top: 0x3a6cc0, mid: 0xf0e0c8, bot: 0xb09068, fog: 0xe6d6bc, sun: 0xfff2d8, si: 2.6, hg: 0x9a7a50 });
+  if (theme === 'snow') Object.assign(L, { top: 0x6f8fb8, mid: 0xe4ecf4, bot: 0xd0d8e0, fog: 0xdfe6ee, si: 1.9, hs: 0xe8f0ff, hg: 0xb0b8c4, hi: 0.95, fogK: 0.75 });
+  if (theme === 'mountain') Object.assign(L, { top: 0x2a5eb4, mid: 0xd2e2f2 });
+  if (time === 1) Object.assign(L, { top: 0x23306a, mid: 0xf09a5a, bot: 0x5a4038, fog: 0xd89870, sun: 0xffa060, si: 1.9, hs: 0xffc49a, hg: 0x4a3a2a, hi: 0.55, sunY: 22, exp: 1.1 });
+  if (time === 2) Object.assign(L, { top: 0x03050c, mid: 0x111a2e, bot: 0x0a0d14, fog: 0x0b0f1a, sun: 0x8aa0ff, si: 0.35, hs: 0x5a6a9a, hg: 0x101418, hi: 0.32, sunY: 70, fogK: 0.55, exp: 1.2 });
+  return L;
+}
 function buildTrackWorld() {
   const T = trackData(), W = RACE.W, R = terrainData(), N = T.N;
   const lim = W / 2 + RACE.WALL;
+  const TRK = curTrack(), TH = TRK.theme, ST = G.set || curSet(), TIME = TRK.night ? 2 : ST.time | 0, WET = !!ST.weather, LAKE = TRK.lake;
+  const LK = skyLook(TH, TIME);
   const sc = new THREE.Scene();
   sc.environment = envTex;
-  sc.background = new THREE.Color(0xa8c4e4);
+  sc.background = new THREE.Color(LK.fog);
   const QL = qLevel();
-  sc.fog = new THREE.Fog(0xb9cde4, [260, 340, 380][QL], [1100, 1600, 2500][QL]);
-  const A = { scene: sc, puddles: [], tires: [], ramps: [], fans: null, rain: null, race: true };
+  sc.fog = new THREE.Fog(WET ? 0x9aa4b0 * 0 + (TIME === 2 ? 0x0a0d14 : 0x9aa4b0) : LK.fog, [260, 340, 380][QL] * LK.fogK * (WET ? 0.5 : 1), [1100, 1600, 2500][QL] * LK.fogK * (WET ? 0.55 : 1));
+  renderer.toneMappingExposure = LK.exp;
+  const A = { scene: sc, puddles: [], tires: [], ramps: [], fans: null, rain: null, race: true, night: TIME === 2, theme: TH, wet: WET, sunY: LK.sunY };
   const sky = new THREE.Mesh(new THREE.SphereGeometry(3600, 32, 16), new THREE.ShaderMaterial({
     side: THREE.BackSide, depthWrite: false, fog: false,
-    uniforms: { top: { value: new THREE.Color(0x2f62b8) }, mid: { value: new THREE.Color(0xd6e6f4) }, bot: { value: new THREE.Color(0x8a9a86) } },
+    uniforms: { top: { value: new THREE.Color(WET && TIME !== 2 ? 0x5a6676 : LK.top) }, mid: { value: new THREE.Color(WET && TIME !== 2 ? 0xa4aeba : LK.mid) }, bot: { value: new THREE.Color(LK.bot) } },
     vertexShader: 'varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }',
     fragmentShader: 'uniform vec3 top; uniform vec3 mid; uniform vec3 bot; varying vec3 vP; void main(){ float h = vP.y; vec3 c = h > 0.0 ? mix(mid, top, pow(h, 0.5)) : mix(mid, bot, pow(-h, 0.4)); gl_FragColor = vec4(c, 1.0); }'
   }));
   sky.frustumCulled = false; sc.add(sky); A.sky = sky;
-  sc.add(new THREE.HemisphereLight(0xd8e6ff, 0x5a6a3a, 0.75));
-  const sun = new THREE.DirectionalLight(0xfff0dc, 2.3);
+  sc.add(new THREE.HemisphereLight(LK.hs, LK.hg, LK.hi * (WET ? 1.1 : 1)));
+  const sun = new THREE.DirectionalLight(LK.sun, LK.si * (WET ? 0.55 : 1));
   sun.castShadow = true;
   sun.shadow.mapSize.set(QL === 2 ? 2048 : 1024, QL === 2 ? 2048 : 1024);
   const shc = sun.shadow.camera; shc.left = -75; shc.right = 75; shc.top = 75; shc.bottom = -75; shc.near = 10; shc.far = 320;
@@ -2694,7 +3058,11 @@ function buildTrackWorld() {
   {
     const { nx, nz, step, x0, z0, h } = R;
     const pos = new Float32Array(nx * nz * 3), cl = new Float32Array(nx * nz * 3), uv = new Float32Array(nx * nz * 2);
-    const grassA = [0.19, 0.3, 0.1], grassB = [0.3, 0.36, 0.13], forest = [0.12, 0.19, 0.08], dirt = [0.34, 0.28, 0.19], rock = [0.4, 0.38, 0.35], snow = [0.92, 0.94, 0.97], sand = [0.55, 0.5, 0.38];
+    let grassA = [0.19, 0.3, 0.1], grassB = [0.3, 0.36, 0.13], forest = [0.12, 0.19, 0.08], dirt = [0.34, 0.28, 0.19], rock = [0.4, 0.38, 0.35], snow = [0.92, 0.94, 0.97], sand = [0.55, 0.5, 0.38], snowLine = 125;
+    if (TH === 'desert') { grassA = [0.74, 0.56, 0.34]; grassB = [0.66, 0.46, 0.27]; forest = [0.6, 0.42, 0.25]; dirt = [0.62, 0.4, 0.24]; rock = [0.55, 0.32, 0.2]; sand = [0.8, 0.66, 0.46]; snowLine = 1e9; }
+    if (TH === 'snow') { grassA = [0.9, 0.93, 0.97]; grassB = [0.8, 0.85, 0.92]; forest = [0.72, 0.78, 0.86]; dirt = [0.62, 0.66, 0.72]; rock = [0.34, 0.35, 0.38]; sand = [0.75, 0.82, 0.9]; snowLine = -1e9; }
+    if (TH === 'mountain') { snowLine = 150; }
+    if (TH === 'city') { grassA = [0.36, 0.36, 0.37]; grassB = [0.3, 0.3, 0.32]; forest = [0.2, 0.3, 0.14]; dirt = [0.4, 0.39, 0.37]; rock = [0.4, 0.4, 0.42]; snowLine = 1e9; }
     const mixc = (o, a, t) => { o[0] = lerp(o[0], a[0], t); o[1] = lerp(o[1], a[1], t); o[2] = lerp(o[2], a[2], t); };
     for (let r = 0; r < nz; r++) for (let q = 0; q < nx; q++) {
       const c = r * nx + q, px = x0 + q * step, pz = z0 + r * step, y = h[c];
@@ -2707,9 +3075,9 @@ function buildTrackWorld() {
       mixc(o, forest, sstep(0.45, 0.6, noise(px / 300 + 1, pz / 300 + 1, 256, 256, 631)) * 0.8);
       mixc(o, dirt, sstep(0.25, 0.5, slope) * 0.7);
       mixc(o, rock, sstep(0.45, 0.9, slope));
-      mixc(o, snow, sstep(125, 150, y + noise(px / 60, pz / 60, 512, 512, 641) * 25) * (1 - sstep(0.9, 1.4, slope) * 0.5));
-      const dl = Math.hypot(px - RACE.LAKE[0], pz - RACE.LAKE[1]);
-      mixc(o, sand, sstep(RACE.LAKE[2] + 22, RACE.LAKE[2] + 2, dl) * 0.8);
+      mixc(o, snow, sstep(snowLine, snowLine + 25, y + noise(px / 60, pz / 60, 512, 512, 641) * 25) * (1 - sstep(0.9, 1.4, slope) * 0.5));
+      if (LAKE) { const dl = Math.hypot(px - LAKE[0], pz - LAKE[1]); mixc(o, sand, sstep(LAKE[2] + 22, LAKE[2] + 2, dl) * 0.8); }
+      if (TH === 'city') { const g = (Math.floor(px / 40) + Math.floor(pz / 40)) & 1; if (R.dist[c] > lim + 40 && noise(px / 150, pz / 150, 512, 512, 651) > 0.62) mixc(o, forest, 0.9); else mixc(o, g ? grassA : grassB, 0.5); }
       mixc(o, dirt, sstep(lim + 6, lim - 2, R.dist[c]) * 0.35);
       cl[c * 3] = o[0]; cl[c * 3 + 1] = o[1]; cl[c * 3 + 2] = o[2];
     }
@@ -2727,12 +3095,15 @@ function buildTrackWorld() {
     const det = texDetail();
     const terr = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ map: det.map, vertexColors: true, roughness: 0.96 }));
     terr.receiveShadow = true; sc.add(terr);
-    const far = new THREE.Mesh(new THREE.CircleGeometry(5000, 48), new THREE.MeshStandardMaterial({ color: 0x3c4a30, roughness: 1 }));
+    const far = new THREE.Mesh(new THREE.CircleGeometry(5000, 48), new THREE.MeshStandardMaterial({ color: TH === 'desert' ? 0x8a6a48 : TH === 'snow' ? 0xc8d0da : TH === 'city' ? 0x303236 : 0x3c4a30, roughness: 1 }));
     far.rotation.x = -Math.PI / 2; far.position.set((T.minX + T.maxX) / 2, -40, (T.minZ + T.maxZ) / 2); sc.add(far);
     // озеро
-    const water = new THREE.Mesh(new THREE.CircleGeometry(RACE.LAKE[2] + 10, 64), new THREE.MeshStandardMaterial({ color: 0x2c5a6e, roughness: 0.06, metalness: 0.35, envMap: envTex, transparent: true, opacity: 0.93 }));
-    water.rotation.x = -Math.PI / 2; water.position.set(RACE.LAKE[0], R.lakeY, RACE.LAKE[1]); sc.add(water);
-    A.water = water;
+    if (LAKE) {
+      const ice = TH === 'snow';
+      const water = new THREE.Mesh(new THREE.CircleGeometry(LAKE[2] + 10, 64), new THREE.MeshStandardMaterial(ice ? { color: 0xbcd4e6, roughness: 0.15, metalness: 0.1, envMap: envTex } : { color: 0x2c5a6e, roughness: 0.06, metalness: 0.35, envMap: envTex, transparent: true, opacity: 0.93 }));
+      water.rotation.x = -Math.PI / 2; water.position.set(LAKE[0], R.lakeY, LAKE[1]); sc.add(water);
+      A.water = water;
+    }
   }
 
   // ---------- дорога ----------
@@ -2750,9 +3121,9 @@ function buildTrackWorld() {
     return g;
   };
   const road = texRoad();
-  const roadM = new THREE.Mesh(strip(-W / 2, W / 2, 0.05), new THREE.MeshStandardMaterial({ map: road.map, roughnessMap: road.rough, roughness: 1, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
+  const roadM = new THREE.Mesh(strip(-W / 2, W / 2, 0.05), new THREE.MeshStandardMaterial({ map: road.map, roughnessMap: road.rough, roughness: WET ? 0.32 : 1, color: WET ? 0x8a8c90 : (TH === 'snow' ? 0xd8dce2 : 0xffffff), envMapIntensity: WET ? 1.6 : 1, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
   roadM.receiveShadow = true; sc.add(roadM);
-  const shM = new THREE.MeshStandardMaterial({ color: 0x8a7a62, roughness: 1, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
+  const shM = new THREE.MeshStandardMaterial({ color: TH === 'snow' ? 0xc4cad4 : TH === 'desert' ? 0xb08a60 : TH === 'city' ? 0x55575c : 0x8a7a62, roughness: 1, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
   for (const sd of [-1, 1]) { const m = new THREE.Mesh(strip(sd * W / 2, sd * (W / 2 + 3.5), 0.03), shM); m.receiveShadow = true; sc.add(m); }
   // поребрики в поворотах
   const kp = [], kuv = [];
@@ -2791,11 +3162,11 @@ function buildTrackWorld() {
     const pitch = -Math.atan(T.grade[i]);
     bars.push([x, z, Math.atan2(T.tx[i], T.tz[i]), T.y[i], pitch]);
   }
-  const arm = new THREE.InstancedMesh(new THREE.BoxGeometry(0.22, 0.42, T.ds * 2 + 0.12), new THREE.MeshStandardMaterial({ color: 0xb8bcc2, metalness: 0.85, roughness: 0.35, envMap: envTex }), bars.length);
+  const arm = TH === 'city' ? new THREE.InstancedMesh(new THREE.BoxGeometry(0.6, 1.15, T.ds * 2 + 0.12), new THREE.MeshStandardMaterial({ map: texConcrete().map, roughness: 0.9 }), bars.length) : new THREE.InstancedMesh(new THREE.BoxGeometry(0.22, 0.42, T.ds * 2 + 0.12), new THREE.MeshStandardMaterial({ color: 0xb8bcc2, metalness: 0.85, roughness: 0.35, envMap: envTex }), bars.length);
   const posts = new THREE.InstancedMesh(new THREE.BoxGeometry(0.12, 1.4, 0.12), new THREE.MeshStandardMaterial({ color: 0x6c7076, metalness: 0.6, roughness: 0.5 }), bars.length);
   bars.forEach((b, k) => {
     qq.setFromEuler(eu.set(b[4], b[2], 0, 'YXZ'));
-    pp.set(b[0], b[3] + 0.62, b[1]); mt.compose(pp, qq, ss); arm.setMatrixAt(k, mt);
+    pp.set(b[0], b[3] + (TH === 'city' ? 0.5 : 0.62), b[1]); mt.compose(pp, qq, ss); arm.setMatrixAt(k, mt);
     pp.set(b[0], b[3] + 0.2, b[1]); mt.compose(pp, qq, ss); posts.setMatrixAt(k, mt);
   });
   arm.castShadow = true; arm.receiveShadow = true; sc.add(arm); sc.add(posts);
@@ -2877,13 +3248,14 @@ function buildTrackWorld() {
 
   // ---------- лес ----------
   {
-    const nT = [900, 2200, 7500][QL], maxR = [520, 700, 820][QL];
+    const nT = Math.round([900, 2200, 7500][QL] * (TH === 'desert' ? 0.22 : TH === 'city' ? 0.25 : 1)), maxR = [520, 700, 820][QL];
+    const pineP = TH === 'snow' || TH === 'mountain' ? 0.93 : TH === 'city' ? 0 : 0.68;
     const pines = new THREE.InstancedMesh(new THREE.ConeGeometry(1, 1, 7).translate(0, 0.5, 0), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.92 }), nT * 3);
     const leafy = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 1), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9, flatShading: true }), nT);
     const trunks = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.2, 0.3, 1, 6).translate(0, 0.5, 0), new THREE.MeshStandardMaterial({ color: 0x4a3420, roughness: 0.95 }), nT);
     let np = 0, nl = 0, nt = 0, tries = 0;
-    const q0 = new THREE.Quaternion();
-    const [lx, lz, lr] = RACE.LAKE;
+    const q0 = new THREE.Quaternion(), cacti = [];
+    const [lx, lz, lr] = LAKE || [1e6, 1e6, 1];
     while (nt < nT && tries < nT * 14) {
       tries++;
       const x = T.minX - maxR + Math.random() * (T.maxX - T.minX + maxR * 2), z = T.minZ - maxR + Math.random() * (T.maxZ - T.minZ + maxR * 2);
@@ -2891,18 +3263,22 @@ function buildTrackWorld() {
       if (d < lim + 5 || d > maxR) continue;
       if (Math.hypot(x - lx, z - lz) < lr + 18) continue;
       if (Math.hypot(x - T.x[0] - 10, z - T.z[0]) < 120) continue;
-      const dens = sstep(0.36, 0.56, noise(x / 300 + 1, z / 300 + 1, 256, 256, 631));
+      if (TH === 'city' && noise(x / 150, z / 150, 512, 512, 651) < 0.62 && d > lim + 16) continue;
+      const dens = TH === 'desert' ? 0.35 : TH === 'city' ? 1 : sstep(0.36, 0.56, noise(x / 300 + 1, z / 300 + 1, 256, 256, 631));
       const near = d < 140 ? 0.6 : 0;
       if (Math.random() > Math.max(dens, near * dens + 0.08) * (d > 450 ? 0.5 : 1)) continue;
       const y = terrainY(x, z);
       if (y > 140) continue;
-      const s = 0.75 + Math.random() * 0.9, pine = Math.random() < 0.68 || y > 60;
+      if (TH === 'desert') { cacti.push([x, y, z, 0.7 + Math.random() * 0.8]); nt++; continue; }
+      const s = 0.75 + Math.random() * 0.9, pine = Math.random() < pineP || (y > 60 && TH !== 'city');
       if (pine) {
         pp.set(x, y - 0.3, z); ss.set(s * 1.1, 3.2 * s, s * 1.1); mt.compose(pp, q0, ss); trunks.setMatrixAt(nt, mt);
         const shade = 0.75 + Math.random() * 0.35;
         for (let k = 0; k < 3; k++) {
           const w = (3.5 - k * 0.95) * s; pp.set(x, y + (1.8 + k * 2.4) * s, z); ss.set(w, 4.4 * s, w); mt.compose(pp, q0, ss); pines.setMatrixAt(np, mt);
-          col.setRGB(0.12 * shade, 0.24 * shade, 0.13 * shade); pines.setColorAt(np, col); np++;
+          if (TH === 'snow') { if (k === 2) col.setRGB(0.88, 0.91, 0.95); else if (k === 1) col.setRGB(0.42 * shade, 0.5 * shade, 0.48 * shade); else col.setRGB(0.1 * shade, 0.2 * shade, 0.13 * shade); }
+          else col.setRGB(0.12 * shade, 0.24 * shade, 0.13 * shade);
+          pines.setColorAt(np, col); np++;
         }
       } else {
         pp.set(x, y - 0.3, z); ss.set(s, 3.6 * s, s); mt.compose(pp, q0, ss); trunks.setMatrixAt(nt, mt);
@@ -2912,12 +3288,22 @@ function buildTrackWorld() {
       }
       nt++;
     }
-    pines.count = np; leafy.count = nl; trunks.count = nt;
+    pines.count = np; leafy.count = nl; trunks.count = TH === 'desert' ? 0 : nt;
+    if (cacti.length) {
+      const cm = new THREE.MeshStandardMaterial({ color: 0x4f7a3a, roughness: 0.8 });
+      const body = new THREE.InstancedMesh(new THREE.CapsuleGeometry(0.4, 1, 4, 8).translate(0, 0.9, 0), cm, cacti.length);
+      const arms = new THREE.InstancedMesh(new THREE.CapsuleGeometry(0.26, 1, 4, 8).translate(0, 0.5, 0), cm, cacti.length * 2);
+      cacti.forEach((c, k) => {
+        const s = c[3]; pp.set(c[0], c[1] - 0.3, c[2]); ss.set(s, s * 3.4, s); mt.compose(pp, q0, ss); body.setMatrixAt(k, mt);
+        for (let a = 0; a < 2; a++) { const sd = a ? 1 : -1, yaw = Math.random() * 6; qq.setFromEuler(eu.set(0, yaw, 0)); pp.set(c[0] + Math.sin(yaw) * 0.55 * s * sd, c[1] + s * (1.6 + a * 0.7), c[2] + Math.cos(yaw) * 0.55 * s * sd); ss.set(s, s * (0.9 + Math.random() * 0.6), s); mt.compose(pp, qq, ss); arms.setMatrixAt(k * 2 + a, mt); }
+      });
+      for (const m of [body, arms]) { m.castShadow = QL === 2; sc.add(m); }
+    }
     for (const m of [pines, leafy, trunks]) { m.castShadow = QL === 2; m.receiveShadow = QL === 2; sc.add(m); }
     // кусты и камни у дороги
-    const nB = [250, 500, 1500][QL], nR = [100, 180, 450][QL];
+    const nB = Math.round([250, 500, 1500][QL] * (TH === 'city' ? 0.2 : 1)), nR = Math.round([100, 180, 450][QL] * (TH === 'mountain' || TH === 'desert' ? 1.8 : TH === 'city' ? 0 : 1));
     const bush = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9, flatShading: true }), nB);
-    const rocks = new THREE.InstancedMesh(new THREE.DodecahedronGeometry(1, 0), new THREE.MeshStandardMaterial({ color: 0x8c8780, roughness: 0.95, flatShading: true }), nR);
+    const rocks = new THREE.InstancedMesh(new THREE.DodecahedronGeometry(1, 0), new THREE.MeshStandardMaterial({ color: TH === 'desert' ? 0xa0623c : TH === 'snow' ? 0x6a6e76 : 0x8c8780, roughness: 0.95, flatShading: true }), nR);
     let nb = 0, nr = 0; tries = 0;
     while ((nb < nB || nr < nR) && tries < (nB + nR) * 20) {
       tries++;
@@ -2928,7 +3314,7 @@ function buildTrackWorld() {
       if (nb < nB && Math.random() < 0.75) {
         const s = 0.6 + Math.random() * 1.1;
         qq.setFromEuler(eu.set(0, Math.random() * 6, 0)); pp.set(x, y + s * 0.35, z); ss.set(s * 1.3, s * 0.8, s * 1.2); mt.compose(pp, qq, ss); bush.setMatrixAt(nb, mt);
-        const t = Math.random(); col.setRGB(lerp(0.15, 0.3, t), lerp(0.28, 0.38, t), lerp(0.1, 0.12, t)); bush.setColorAt(nb, col); nb++;
+        const t = Math.random(); if (TH === 'desert') col.setRGB(lerp(0.45, 0.6, t), lerp(0.36, 0.44, t), 0.2); else if (TH === 'snow') col.setRGB(0.85, 0.88, 0.93); else col.setRGB(lerp(0.15, 0.3, t), lerp(0.28, 0.38, t), lerp(0.1, 0.12, t)); bush.setColorAt(nb, col); nb++;
       } else if (nr < nR) {
         const s = 0.4 + Math.random() * Math.random() * 3.2;
         qq.setFromEuler(eu.set(Math.random() * 6, Math.random() * 6, Math.random() * 6)); pp.set(x, y + s * 0.2, z); ss.set(s * 1.2, s * 0.8, s); mt.compose(pp, qq, ss); rocks.setMatrixAt(nr, mt); nr++;
@@ -2939,13 +3325,92 @@ function buildTrackWorld() {
   }
   // дальние горы
   {
-    const hillM = new THREE.MeshStandardMaterial({ color: 0x55684f, roughness: 1 });
+    const hillM = new THREE.MeshStandardMaterial({ color: TH === 'desert' ? 0xa0704a : TH === 'snow' ? 0xdfe6ee : TH === 'city' ? 0x3a3f48 : 0x55684f, roughness: 1 });
     const cx = (T.minX + T.maxX) / 2, cz = (T.minZ + T.maxZ) / 2;
     for (let i = 0; i < 18; i++) {
       const a = i / 18 * Math.PI * 2 + Math.random() * 0.3, r = 2300 + Math.random() * 500;
       const h = new THREE.Mesh(new THREE.SphereGeometry(1, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2), hillM);
       h.position.set(cx + Math.cos(a) * r, -40, cz + Math.sin(a) * r); h.scale.set(500 + Math.random() * 300, 220 + Math.random() * 260, 500 + Math.random() * 300); sc.add(h);
     }
+  }
+  // столовые горы в пустыне
+  if (TH === 'desert') {
+    const mm = new THREE.MeshStandardMaterial({ color: 0xb06a40, roughness: 1, flatShading: true });
+    const cx = (T.minX + T.maxX) / 2, cz = (T.minZ + T.maxZ) / 2;
+    for (let i = 0; i < 14; i++) {
+      const a = Math.random() * Math.PI * 2, r = 900 + Math.random() * 900, rad = 60 + Math.random() * 160, hh = 50 + Math.random() * 110;
+      const m = new THREE.Mesh(new THREE.CylinderGeometry(rad * 0.8, rad, hh, 9), mm);
+      const x = cx + Math.cos(a) * r, z = cz + Math.sin(a) * r;
+      m.position.set(x, terrainY(x, z) + hh / 2 - 5, z); m.rotation.y = Math.random() * 3; sc.add(m);
+    }
+  }
+  // город: дома, окна светятся ночью
+  if (TH === 'city') {
+    const ca = canvasOf(128, 256), x = ca.getContext('2d'), ce = canvasOf(128, 256), xe = ce.getContext('2d');
+    x.fillStyle = '#5a5e66'; x.fillRect(0, 0, 128, 256); xe.fillStyle = '#000'; xe.fillRect(0, 0, 128, 256);
+    for (let r = 0; r < 16; r++) for (let q = 0; q < 8; q++) {
+      const lit = Math.random() < 0.42, c = ['#ffd890', '#ffe6b0', '#cfe4ff'][Math.floor(Math.random() * 3)];
+      x.fillStyle = TIME === 2 ? (lit ? c : '#14171e') : (Math.random() < 0.3 ? '#3a4656' : '#252b36');
+      x.fillRect(q * 16 + 3, r * 16 + 4, 10, 9);
+      if (lit) { xe.fillStyle = c; xe.fillRect(q * 16 + 3, r * 16 + 4, 10, 9); }
+    }
+    const ft = texFrom(ca, true, false), fe = texFrom(ce, true, false);
+    const bm = new THREE.MeshStandardMaterial({ map: ft, emissiveMap: fe, emissive: 0xffffff, emissiveIntensity: TIME === 2 ? 1.3 : 0, roughness: 0.7, metalness: 0.2 });
+    const roofM = new THREE.MeshStandardMaterial({ color: 0x2c2f35, roughness: 0.9 });
+    const nb = [120, 220, 380][QL], bg = new THREE.BoxGeometry(1, 1, 1).translate(0, 0.5, 0);
+    const bld = new THREE.InstancedMesh(bg, bm, nb), roofs = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 0.6, 1), roofM, nb);
+    const used = new Set(); let n = 0, tries = 0;
+    while (n < nb && tries < nb * 30) {
+      tries++;
+      const gx = Math.floor((T.minX - 500 + Math.random() * (T.maxX - T.minX + 1000)) / 45), gz = Math.floor((T.minZ - 500 + Math.random() * (T.maxZ - T.minZ + 1000)) / 45);
+      if (used.has(gx + ',' + gz)) continue;
+      const px = gx * 45 + 22.5, pz = gz * 45 + 22.5, d = terrainDist(px, pz);
+      if (d < lim + 30 || Math.hypot(px - T.x[0], pz - T.z[0]) < 110) continue;
+      if (noise(px / 150, pz / 150, 512, 512, 651) > 0.62) continue;
+      used.add(gx + ',' + gz);
+      const w = 22 + Math.random() * 16, dd = 22 + Math.random() * 16, h = (d < 200 ? 18 : 30) + Math.random() * Math.random() * (d < 200 ? 60 : 120);
+      const y = terrainY(px, pz) - 1;
+      pp.set(px, y, pz); ss.set(w, h, dd); mt.compose(pp, qq.set(0, 0, 0, 1), ss); bld.setMatrixAt(n, mt);
+      pp.set(px, y + h + 0.3, pz); ss.set(w + 0.6, 1, dd + 0.6); mt.compose(pp, qq, ss); roofs.setMatrixAt(n, mt); n++;
+    }
+    bld.count = n; roofs.count = n; bld.castShadow = QL === 2; bld.receiveShadow = true; sc.add(bld); sc.add(roofs);
+  }
+  // фонари вдоль трассы (в городе всегда, ночью — везде)
+  if (TH === 'city' || TIME === 2) {
+    const every = TH === 'city' ? 22 : 30, list = [];
+    for (let i = 0; i < N; i += every) { const side = (i / every) % 2 ? 1 : -1, off = W / 2 + 2.2; const x = T.x[i] - T.tz[i] * side * off, z = T.z[i] + T.tx[i] * side * off; if (distToTrack(x, z, 30) < off - 1.5) continue; list.push([x, T.y[i], z, Math.atan2(T.tx[i], T.tz[i]), side, i]); }
+    const pm = new THREE.MeshStandardMaterial({ color: 0x3a3d42, metalness: 0.6, roughness: 0.5 });
+    const posts = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.09, 0.13, 7.5, 6).translate(0, 3.75, 0), pm, list.length);
+    const arms = new THREE.InstancedMesh(new THREE.BoxGeometry(0.1, 0.1, 2.2), pm, list.length);
+    const heads = new THREE.InstancedMesh(new THREE.BoxGeometry(0.5, 0.14, 0.9), new THREE.MeshStandardMaterial({ color: 0xffe0b0, emissive: 0xffc070, emissiveIntensity: TIME === 2 ? 4 : 0.2 }), list.length);
+    let pool = null;
+    if (TIME === 2) {
+      const pc = canvasOf(64, 64), px2 = pc.getContext('2d'), g = px2.createRadialGradient(32, 32, 0, 32, 32, 32);
+      g.addColorStop(0, 'rgba(255,200,130,0.55)'); g.addColorStop(0.5, 'rgba(255,170,90,0.2)'); g.addColorStop(1, 'rgba(255,160,80,0)');
+      px2.fillStyle = g; px2.fillRect(0, 0, 64, 64);
+      const pg = new THREE.PlaneGeometry(1, 1); pg.rotateX(-Math.PI / 2);
+      pool = new THREE.InstancedMesh(pg, new THREE.MeshBasicMaterial({ map: texFrom(pc, true, false), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -8, polygonOffsetUnits: -8 }), list.length);
+      pool.renderOrder = 2;
+    }
+    list.forEach((l, k) => {
+      const [x, y, z, yaw, side] = l, rx = -Math.cos(yaw) * side, rz = Math.sin(yaw) * side;
+      qq.setFromEuler(eu.set(0, yaw + Math.PI / 2, 0));
+      pp.set(x, y, z); ss.set(1, 1, 1); mt.compose(pp, qq, ss); posts.setMatrixAt(k, mt);
+      pp.set(x + rx * 1.0, y + 7.4, z + rz * 1.0); mt.compose(pp, qq, ss); arms.setMatrixAt(k, mt);
+      pp.set(x + rx * 2.0, y + 7.3, z + rz * 2.0); mt.compose(pp, qq, ss); heads.setMatrixAt(k, mt);
+      if (pool) { pp.set(x + rx * 3.5, y + 0.1, z + rz * 3.5); ss.set(17, 1, 17); mt.compose(pp, qq, ss); pool.setMatrixAt(k, mt); ss.set(1, 1, 1); }
+    });
+    for (const m of [posts, arms, heads]) sc.add(m);
+    if (pool) sc.add(pool);
+  }
+  // дождь или снег
+  if (WET) {
+    const snow = TH === 'snow', nD = MOBILE ? 700 : 2200, rp = new Float32Array(nD * 6);
+    for (let i = 0; i < nD; i++) { const x = (Math.random() - 0.5) * 120, y = Math.random() * 30, z = (Math.random() - 0.5) * 120; rp.set([x, y, z, x - 0.05, y - (snow ? 0.12 : 0.9), z + 0.02], i * 6); }
+    const rg = new THREE.BufferGeometry(); rg.setAttribute('position', new THREE.BufferAttribute(rp, 3).setUsage(THREE.DynamicDrawUsage));
+    const rain = new THREE.LineSegments(rg, new THREE.LineBasicMaterial({ color: snow ? 0xffffff : 0xb8c6d8, transparent: true, opacity: snow ? 0.9 : 0.38, depthWrite: false, fog: false }));
+    rain.frustumCulled = false; sc.add(rain);
+    A.rain = { geo: rg, arr: rp, n: nD, race: true, snow, sp: snow ? 3.2 : 26, len: snow ? 0.12 : 0.9 };
   }
   // следы шин
   const maxSk = MOBILE ? 600 : 2000;
@@ -2985,6 +3450,8 @@ function raceEffects(c, v, dt, A) {
       else m[w] = [x, y, z];
       if (Math.random() < dt * 40 * c.slip * (MOBILE ? 0.4 : 1)) A.fxA.emit(x, y + 0.3, z, c.vx * 0.15 + (Math.random() - 0.5), 0.6 + Math.random() * 0.6, c.vz * 0.15 + (Math.random() - 0.5), 1.6 + Math.random(), 0.5, 3.2, 0.82, 0.82, 0.84, 0.32, -0.02);
     } else m[w] = null;
+    if (A.wet && !(A.rain && A.rain.snow) && spd > 12 && Math.random() < dt * spd * 0.9 * (MOBILE ? 0.35 : 1))
+      A.fxA.emit(x, y + 0.25, z, c.vx * 0.3 + (Math.random() - 0.5) * 2, 0.8 + Math.random(), c.vz * 0.3 + (Math.random() - 0.5) * 2, 0.9 + Math.random() * 0.5, 0.4, 2.2, 0.75, 0.78, 0.82, 0.22, -0.05);
     if (c.surf === 2 && spd > 6 && Math.random() < dt * spd * 1.2 * (MOBILE ? 0.4 : 1))
       A.fxA.emit(x, y + 0.3, z, -c.vx * 0.1 + (Math.random() - 0.5) * 2, 1.5 + Math.random() * 2, -c.vz * 0.1 + (Math.random() - 0.5) * 2, 0.7, 0.25, 0.5, 0.36, 0.33, 0.2, 0.9, 1.2);
   }
@@ -3059,10 +3526,80 @@ function updateRaceHud() {
 }
 
 // =====================================================================
+// =====================================================================
+//  Боты
+// =====================================================================
+function botRace(c) {
+  const T = trackData(); if (c.tIdx === undefined) return { th: 0, st: 0, n: false };
+  if (!c.skill) c.skill = 0.86 + Math.random() * 0.12;
+  const spd = Math.hypot(c.vx, c.vz);
+  // объезд машины впереди
+  let off = c.botOff || 0;
+  for (const o of G.cars) {
+    if (o === c || o.gone) continue;
+    let ds = (o.s || 0) - (c.s || 0); if (ds < -T.L / 2) ds += T.L; if (ds > T.L / 2) ds -= T.L;
+    if (ds > 2 && ds < 22 && Math.abs((o.lat || 0) - (c.lat || 0)) < 3.2) { off = (o.lat || 0) > 0 ? -3.5 : 3.5; break; }
+  }
+  c.botOff = lerp(c.botOff || 0, off, 0.02); if (Math.abs(off) < 0.01) c.botOff *= 0.995;
+  const look = Math.round((9 + spd * 0.8) / T.ds), i = (c.tIdx + look) % T.N;
+  const tx = T.x[i] - T.tz[i] * c.botOff - c.x, tz = T.z[i] + T.tx[i] * c.botOff - c.z;
+  let d = Math.atan2(tx, tz) - c.yaw; d = Math.atan2(Math.sin(d), Math.cos(d));
+  let kmax = 0; const n = Math.round((15 + spd * 2.6) / T.ds);
+  for (let o = 0; o < n; o += 2) kmax = Math.max(kmax, Math.abs(T.k[(c.tIdx + o) % T.N]));
+  const vmax = Math.sqrt(9.6 * c.skill * (c.rc ? c.rc.grip : 1) * (G.tgrip || 1) / Math.max(kmax, 0.0015));
+  const th = spd > vmax + 1.5 ? -1 : spd > vmax ? 0 : 1;
+  return { th, st: clamp(-d * 2.4, -1, 1), n: false };
+}
+function botDerby(c, dt) {
+  if (!c.alive) return { th: 0, st: 0, n: false };
+  const R = ARENA_R;
+  // цель: ближайший живой соперник (или аптечка, если мало здоровья)
+  let tgt = null, best = 1e9;
+  if (c.hp < 40) for (const p of G.pickups) if (p.type === 0) { const d = Math.hypot(p.x - c.x, p.z - c.z); if (d < best) { best = d; tgt = { x: p.x, z: p.z, vx: 0, vz: 0 }; } }
+  if (!tgt) for (const o of G.cars) { if (o === c || !o.alive || o.gone) continue; const d = Math.hypot(o.x - c.x, o.z - c.z) * (o.bot ? 1.25 : 1); if (d < best) { best = d; tgt = o; } }
+  if (!tgt) return { th: 0, st: 0, n: false };
+  const lead = clamp(best / 25, 0, 0.8);
+  let px = tgt.x + (tgt.vx || 0) * lead, pz = tgt.z + (tgt.vz || 0) * lead;
+  const r = Math.hypot(c.x, c.z);
+  if (r > R - 7) { px = lerp(px, 0, 0.5); pz = lerp(pz, 0, 0.5); }
+  let d = Math.atan2(px - c.x, pz - c.z) - c.yaw; d = Math.atan2(Math.sin(d), Math.cos(d));
+  const fwd = c.vx * Math.sin(c.yaw) + c.vz * Math.cos(c.yaw);
+  // застрял — сдать назад
+  c.stuck = (Math.abs(fwd) < 2 && c.ctl) ? (c.stuck || 0) + dt : 0;
+  if (c.stuck > 1.2) c.rev = 1.0;
+  if (c.rev > 0) { c.rev -= dt; return { th: -1, st: clamp(d * 2, -1, 1), n: false }; }
+  if (Math.abs(d) > 2.4 && best < 8) return { th: -1, st: clamp(d * 2, -1, 1), n: false };
+  const aim = Math.abs(d) < 0.25 && best > 8 && best < 30;
+  return { th: 1, st: clamp(-d * 2.2, -1, 1), n: aim && c.nitro > 0.3 };
+}
+
+// ---------- имена над машинами ----------
+const _tagV = new THREE.Vector3();
+function updateTags() {
+  const box = $('#tags');
+  if (!G.cams.length || G.cars.length < 2 || G.cams.length > 1) { if (box._n) { box.innerHTML = ''; box._n = 0; } return; }
+  if (box._n !== G.cars.length) {
+    box.innerHTML = G.cars.map(c => `<div class="tag" style="display:none;color:${CAT.paints[c.lo.color]}">${esc(c.lo.name)}</div>`).join(''); box._n = G.cars.length;
+  }
+  const cam = G.cams[0].cam, me = myIndex(), W = innerWidth, H = innerHeight;
+  G.cars.forEach((c, i) => {
+    const el = box.children[i]; if (!el) return;
+    _tagV.set(c.x, c.y + 2.3, c.z);
+    const dist = cam.position.distanceTo(_tagV);
+    _tagV.project(cam);
+    const vis = i !== me && !c.gone && _tagV.z < 1 && dist < 140 && Math.abs(_tagV.x) < 1.1 && Math.abs(_tagV.y) < 1.1;
+    if (!vis) { if (el._v) { el.style.display = 'none'; el._v = false; } return; }
+    if (!el._v) { el.style.display = ''; el._v = true; }
+    el.style.transform = `translate(${(_tagV.x + 1) / 2 * W}px,${(1 - _tagV.y) / 2 * H}px) translate(-50%,-100%) scale(${clamp(30 / dist, 0.55, 1.1)})`;
+    el.style.opacity = c.alive || G.game === 'race' ? 1 : 0.45;
+  });
+}
+
+// =====================================================================
 //  Матч: загрузка, камеры, выход
 // =====================================================================
 function beginLoading() {
-  G.phase = 'loading';
+  G.phase = 'loading'; Net.startT0 = performance.now(); Net.gotState = false; Net.lastHostT = -1;
   setScreen('loading');
   setTimeout(() => {
     try { buildMatch(); }
@@ -3071,12 +3608,10 @@ function beginLoading() {
 }
 function buildMatch() {
   const race = G.game === 'race';
+  G.set = Object.assign({}, curSet());
   G.arena = race ? buildTrackWorld() : buildArena(G.seed);
-  let l0, l1;
-  if (G.mode === 'client') { l0 = G.remoteLo; l1 = my; }
-  else if (G.mode === 'host') { l0 = my; l1 = G.remoteLo; }
-  else { l0 = my; l1 = Object.assign({}, my, { name: 'Игрок 2', color: (my.color + 1) % CAT.paints.length, number: (my.number + 7) % 100 }); }
-  G.cars = G.mode === 'solo' ? [newCar(0, my)] : [newCar(0, l0), newCar(1, l1)];
+  G.cars = (G.players && G.players.length ? G.players : [my]).map((lo, i) => { const c = newCar(i, lo); c.bot = !!lo.bot; return c; });
+  G.tgrip = race ? trackGrip() : 1; G.tTheme = race ? curTrack().theme : '';
   G.vis = G.cars.map(c => { const v = buildCar(c.lo, true, race); G.arena.scene.add(v.root); return v; });
   G.pickMeshes = new Map();
   const n = G.mode === 'local' ? 2 : 1;
@@ -3085,7 +3620,8 @@ function buildMatch() {
     const cam = new THREE.PerspectiveCamera(n === 2 ? 62 : 60, 1, race ? 0.5 : 0.2, race ? 5000 : 1500);
     G.cams.push({ cam, target: n === 2 ? i : myIndex(), snap: true, flat: new THREE.Vector3(0, 0, 1), base: new THREE.Vector3(), shake: 0 });
   }
-  G.wins = [0, 0]; G.round = 0; G.pickups = []; G.popups.forEach(p => p.el && p.el.remove()); G.popups = []; G.evLog = []; G.evId = 0; G.lastEv = 0;
+  if (race && G.arena.night) addNightLights();
+  G.wins = G.cars.map(() => 0); G.round = 0; G.pickups = []; G.popups.forEach(p => p.el && p.el.remove()); G.popups = []; G.evLog = []; G.evId = 0; G.lastEv = 0;
   G.overtime = false; G.centerText = ''; G.cheer = 0; G.debris = []; G.lastWinner = -1; G.results = null; G.raceTime = 0;
   if (race) placeRaceCars(); else placeCars();
   Net.lastRecv = performance.now();
@@ -3096,24 +3632,50 @@ function buildMatch() {
   $('#split').classList.toggle('on', n === 2);
   $('#hudMe').style.display = race ? 'none' : '';
   $('#hudP2').style.display = n === 2 ? '' : 'none';
-  $('#hudEnemy').style.display = (n === 2 || race || G.mode === 'solo') ? 'none' : '';
-  document.querySelector('#hud .score').style.display = G.mode === 'solo' ? 'none' : '';
+  $('#hudEnemy').style.display = (n === 2 || race || G.cars.length < 2) ? 'none' : '';
+  $('#hudEnemy').classList.toggle('many', G.cars.length > 2);
+  document.querySelector('#hud .score').style.display = G.cars.filter(c => !c.bot).length < 2 ? 'none' : '';
+  $('#tags').innerHTML = ''; $('#tags')._n = 0;
   $('#race').classList.toggle('on', race);
   $('#tN').textContent = race ? 'РУЧНИК' : 'НИТРО';
   $('#res').classList.remove('on'); $('#lights').classList.remove('on');
   $('#touch').classList.toggle('on', MOBILE || G.mode !== 'local' && ('ontouchstart' in window));
   onResize();
 }
-function endMatch(msg) {
-  if (G.phase === 'menu' && !msg) return;
-  if (Net.conn && G.mode !== 'local') Net.send({ t: 'bye' });
-  setTimeout(() => Net.reset(), 150);
+// ночью: пятно света от фар у всех машин, настоящий прожектор — у своей
+let _beamTex = null;
+function addNightLights() {
+  if (!_beamTex) {
+    const c = canvasOf(64, 128), x = c.getContext('2d'), g = x.createRadialGradient(32, 128, 4, 32, 90, 90);
+    g.addColorStop(0, 'rgba(255,240,210,0.28)'); g.addColorStop(0.5, 'rgba(255,235,200,0.1)'); g.addColorStop(1, 'rgba(255,230,190,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 64, 128); _beamTex = texFrom(c, true, false);
+  }
+  const pg = new THREE.PlaneGeometry(9, 18); pg.rotateX(-Math.PI / 2);
+  const mat = new THREE.MeshBasicMaterial({ map: _beamTex, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -8, polygonOffsetUnits: -8 });
+  const targets = G.cams.map(c => c.target);
+  G.vis.forEach((v, i) => {
+    const m = new THREE.Mesh(pg, mat); m.position.set(0, 0.12, 12.5); m.renderOrder = 3; v.root.add(m);
+    if (targets.includes(i) && qLevel() > 0) {
+      const sp = new THREE.SpotLight(0xfff0dc, 160, 80, 0.45, 0.7, 1.6); sp.position.set(0, 1.0, 2.0); sp.target.position.set(0, 0, 22);
+      v.root.add(sp); v.root.add(sp.target);
+    }
+  });
+}
+function disposeMatch() {
   if (G.arena) {
     G.arena.scene.traverse(o => { if (o.isMesh || o.isPoints || o.isLineSegments || o.isInstancedMesh) { const keep = Object.values(GEO).includes(o.geometry); if (!keep && o.geometry) o.geometry.dispose(); } });
   }
   G.arena = null; G.cars = []; G.vis = []; G.cams = [];
   G.popups.forEach(p => p.el && p.el.remove()); G.popups = [];
+  $('#tags').innerHTML = ''; $('#tags')._n = 0;
   AudioSys.stopEngines(); AudioSys.ambient(0, 0);
+}
+function endMatch(msg) {
+  if (G.phase === 'menu' && !msg) return;
+  if (G.mode === 'client') Net.send({ t: 'bye' });
+  if (G.mode === 'host') Net.bcast({ t: 'bye' });
+  setTimeout(() => Net.reset(), 150);
+  disposeMatch();
   G.phase = 'menu'; G.mode = 'local'; G.joining = false;
   history.replaceState(null, '', location.pathname + location.search);
   setScreen('menu');
@@ -3214,23 +3776,25 @@ function statRows(lo, compact) {
   }).join('');
 }
 function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
-function renderCarCard() { $('#carcard').innerHTML = G.game === 'race' ? `<h3>${esc(SPORTS[my.sport].name)}</h3>` + sportRows(my.sport) : `<h3>${esc(CAT.models[my.model].name)} №${my.number}</h3>` + statRows(my, true); }
+function renderCarCard() { $('#carcard').innerHTML = G.game === 'race' ? `<h3>${esc(SPORTS[my.sport].name)} <span class="coins" style="float:right">🪙 ${coins()}</span></h3>` + sportRows(my.sport) : `<h3>${esc(CAT.models[my.model].name)} №${my.number}</h3>` + statRows(my, true); }
 $('#name').value = my.name;
 $('#name').addEventListener('input', e => { my.name = (e.target.value || '').slice(0, 14) || 'Игрок'; saveLoadout(); });
 $('#name').addEventListener('keydown', e => { if (e.key === 'Enter') e.target.blur(); });
-$('#bHost').onclick = () => hostRoom();
+$('#bHost').onclick = () => { AudioSys.init(); hostRoom(); };
+$('#bHostStart').onclick = () => { if (!$('#bHostStart').disabled) hostStart(); };
+$('#bLobby').onclick = () => { if (G.mode !== 'client') backToLobby(); };
 $('#bJoin').onclick = () => { joinDigits = ''; setDigits('#joinDigits', ''); $('#joinStatus').textContent = ''; setScreen('join'); };
 $('#bGarage').onclick = () => setScreen('garage');
 G.game = store.get('derby_game', 'derby') === 'race' ? 'race' : 'derby';
 function renderMode() {
   document.querySelectorAll('#modeSeg div').forEach(d => d.classList.toggle('on', d.dataset.g === G.game));
-  $('#bSolo').style.display = G.game === 'race' ? '' : 'none';
+  $('#bSolo').textContent = G.game === 'race' ? 'Одиночная гонка' : 'Против ботов';
   if (Show.lastGame !== G.game) { Show.lastGame = G.game; Show.setCar(my); }
   renderCarCard();
 }
 $('#modeSeg').addEventListener('click', e => { const d = e.target.closest('[data-g]'); if (!d) return; G.game = d.dataset.g; store.set('derby_game', G.game); renderMode(); });
-$('#bSolo').onclick = () => { AudioSys.init(); G.mode = 'solo'; G.seed = 1; beginLoading(); };
-$('#bLocal').onclick = () => { AudioSys.init(); G.game = G.game || 'derby'; G.mode = 'local'; G.seed = 1 + Math.floor(Math.random() * 1e9); beginLoading(); };
+$('#bSolo').onclick = () => openLobby('solo');
+$('#bLocal').onclick = () => openLobby('local');
 if (MOBILE) $('#bLocal').style.display = 'none';
 const STANDALONE = navigator.standalone === true || (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || (window.matchMedia && matchMedia('(display-mode: fullscreen)').matches);
 if (STANDALONE) $('#bFull').style.display = 'none';
@@ -3253,7 +3817,7 @@ try {
   x.font = '700 26px Arial, sans-serif'; x.fillText('ГОНКИ', 90, 128);
   $('#appIcon').href = ic.toDataURL('image/png');
 } catch (e) { }
-$('#bHostCancel').onclick = () => { Net.reset(); G.mode = 'local'; history.replaceState(null, '', location.pathname + location.search); setScreen('menu'); };
+$('#bHostCancel').onclick = () => { if (G.mode === 'host' || G.mode === 'client') endMatch(''); else { G.phase = 'menu'; G.mode = 'local'; setScreen('menu'); } };
 $('#bCopy').onclick = () => {
   const url = location.href.split('#')[0] + '#' + Net.roomId;
   try { navigator.clipboard.writeText(url).then(() => toast('Ссылка скопирована: ' + url), () => toast(url, 8)); } catch (e) { toast(url, 8); }
@@ -3270,12 +3834,12 @@ function pressKey(k) {
 $('#bJoinGo').onclick = () => { if (!G.joining) joinRoom(joinDigits); };
 $('#bJoinBack').onclick = () => { if (G.joining) { Net.reset(); G.joining = false; G.mode = 'local'; } setScreen('menu'); };
 $('#bLeave').onclick = () => endMatch('');
-$('#bMenu').onclick = () => endMatch('');
+$('#bMenu').onclick = () => { if (G.mode === 'host' || G.mode === 'client') endMatch(''); else { disposeMatch(); G.phase = 'menu'; G.mode = 'local'; setScreen('menu'); } };
 $('#bRematch').onclick = () => { if (G.mode === 'client') return; if (G.game === 'race') startRace(); else startMatchRounds(); };
 
 // ---------- гараж ----------
 const CATS_D = [['Машина', 'model'], ['Цвет', 'color'], ['Номер', 'number'], ['Бампер', 'bumper'], ['Колёса', 'wheels'], ['Броня', 'armor'], ['Крыша', 'roof'], ['Сзади', 'rear']];
-const CATS_R = [['Спорткар', 'sport'], ['Цвет', 'color']];
+const CATS_R = [['Спорткар', 'sport'], ['Тюнинг', 'tune'], ['Цвет', 'color']];
 let CATS = CATS_D;
 SLOT_LIST.sport = SPORTS;
 let shopCat = 0;
@@ -3296,19 +3860,25 @@ function renderGarage() {
     html = CAT.paints.map((p, i) => `<div class="card ${i === my.color ? 'on' : ''}" data-color="${i}"><div class="swatch" style="background:${p}"></div><b>${CAT.paintNames[i]}</b><span class="price">${i === my.color ? 'ВЫБРАНО' : 'БЕСПЛАТНО'}</span></div>`).join('');
   } else if (key === 'number') {
     html = `<div class="numpick"><b style="font-size:calc(var(--u)*2.6)">Номер на дверях</b><div class="row" style="justify-content:center;align-items:center;width:auto"><button class="btn" data-num="-1">–</button><div class="n">${my.number}</div><button class="btn" data-num="1">+</button></div><button class="btn sm" data-num="r">Случайный</button></div>`;
+  } else if (key === 'tune') {
+    const t = TUNES[my.sport] || [0, 0, 0];
+    html = `<div class="card" style="cursor:default"><b>${esc(SPORTS[my.sport].name)}</b><small>Улучшения для этой машины. Монеты дают за победы и места в гонках и раундах дерби.</small><div class="fx coins">🪙 ${coins()} монет</div></div>` +
+      TUNE.map((u, j) => { const l = t[j] | 0, pr = TUNE_PRICE[l]; return `<div class="card ${l >= 3 ? 'on' : coins() < pr ? 'na' : ''}" data-tune="${j}"><span class="price">${l >= 3 ? 'МАКСИМУМ' : '🪙 ' + pr}</span><b>${u.name}</b><small>${u.desc}</small><div class="pips">${[0, 1, 2].map(q => `<i class="${q < l ? 'on' : ''}"></i>`).join('')}</div><div class="fx">${l ? u.fx(l) : 'стандарт'}</div></div>`; }).join('');
   } else if (key === 'sport') {
     html = SPORTS.map((it, i) => `<div class="card ${my.sport === i ? 'on' : ''}" data-slot="sport" data-i="${i}"><span class="price">${my.sport === i ? 'ВЫБРАНО' : 'БЕСПЛАТНО'}</span><b>${it.name}</b><small>${it.desc}</small><div class="fx">${it.hp} л.с. · ${it.vmax} км/ч · ${it.mass} кг</div></div>`).join('');
   } else {
     html = SLOT_LIST[key].map((it, i) => `<div class="card ${my[key] === i ? 'on' : ''}" data-slot="${key}" data-i="${i}"><span class="price">${my[key] === i ? 'УСТАНОВЛЕНО' : 'БЕСПЛАТНО'}</span><b>${it.name}</b><small>${it.desc}</small><div class="fx">${fxText(it)}</div></div>`).join('');
   }
   $('#items').innerHTML = html;
+  $('.gsub').innerHTML = G.game === 'race' ? `<span class="coins">🪙 ${coins()}</span> — монеты за победы, трать на тюнинг` : 'Всё бесплатно — выбирай что хочешь!';
   $('#stats').innerHTML = G.game === 'race' ? `<h3>${esc(SPORTS[my.sport].name)}</h3>` + sportRows(my.sport) : `<h3>${esc(CAT.models[my.model].name)}</h3>` + statRows(my, false);
 }
 $('#cats').addEventListener('click', e => { const c = e.target.closest('[data-c]'); if (!c) return; shopCat = +c.dataset.c; renderGarage(); $('#items').scrollTop = 0; });
 $('#items').addEventListener('click', e => {
-  const card = e.target.closest('[data-slot],[data-color],[data-num]');
+  const card = e.target.closest('[data-slot],[data-color],[data-num],[data-tune]');
   if (!card) return;
-  if (card.dataset.slot) my[card.dataset.slot] = +card.dataset.i;
+  if (card.dataset.tune !== undefined) { buyTune(+card.dataset.tune); renderGarage(); return; }
+  if (card.dataset.slot) { my[card.dataset.slot] = +card.dataset.i; if (card.dataset.slot === 'sport') syncTune(); }
   else if (card.dataset.color !== undefined) my.color = +card.dataset.color;
   else if (card.dataset.num) { const v = card.dataset.num; my.number = v === 'r' ? 1 + Math.floor(Math.random() * 98) : (my.number + (+v) + 100) % 100; }
   saveLoadout(); renderGarage(); Show.setCar(my);
@@ -3329,24 +3899,26 @@ function updateHud(dt) {
   hudT -= dt;
   if (hudT > 0) return;
   hudT = 0.1;
-  const me = G.cars[myIndex()], other = G.cars[1 - myIndex()];
+  if (G.mode !== 'local' || myIndex() === 0) awardCoins();
+  const me = G.cars[myIndex()], others = G.cars.filter(c => c !== me && !c.gone);
   if (!me) return;
   if (G.game === 'race') {
     updateRaceHud();
     drawMini();
-    $('#score').textContent = G.wins[0] + ' : ' + G.wins[1];
+    $('#score').textContent = scoreText();
     $('#info').textContent = '';
     const ce0 = $('#center'), ct = G.ms === 'wait' ? `<div class="big" style="font-size:calc(var(--u)*3.2)">${G.mode === 'host' ? 'Ждём соперника…' : 'Подключение…'}</div>` : '';
     if (ce0._h !== ct) { ce0.innerHTML = ct; ce0._h = ct; }
     $('#over').classList.toggle('on', G.ms === 'results');
     $('#bRematch').style.display = G.mode === 'client' ? 'none' : '';
-    $('#overWait').textContent = G.mode === 'client' && G.ms === 'results' ? 'Ждём реванш от хозяина' : '';
+    $('#bLobby').style.display = G.mode === 'client' ? 'none' : '';
+    $('#overWait').textContent = G.mode === 'client' && G.ms === 'results' ? 'Ждём, что выберет хозяин' : '';
     return;
   }
   $('#hudMe').innerHTML = hpHtml(G.mode === 'local' ? G.cars[0] : me, 'left');
   if (G.mode === 'local') $('#hudP2').innerHTML = hpHtml(G.cars[1], 'left');
-  else $('#hudEnemy').innerHTML = hpHtml(other, 'right');
-  $('#score').textContent = G.wins[0] + ' : ' + G.wins[1];
+  else { const h = others.map(o => hpHtml(o, 'right')).join(''); const he = $('#hudEnemy'); if (he._h !== h) { he.innerHTML = h; he._h = h; } }
+  $('#score').textContent = scoreText();
   const ie = $('#info'); ie.textContent = G.overtime ? 'УРОН x2' : ''; ie.classList.toggle('ot', G.overtime);
   const online = G.mode !== 'local';
   let center = '';
@@ -3355,15 +3927,40 @@ function updateHud(dt) {
   else if (G.ms === 'countdown') center = `<div class="huge">${Math.max(1, Math.ceil(G.stateTimer))}</div>`;
   else if (G.ms === 'roundover' && G.decided) {
     const w = G.lastWinner;
-    center = `<div class="big">${w < 0 ? 'НИЧЬЯ' : online ? (w === myIndex() ? 'ПОБЕДА!' : 'ПОРАЖЕНИЕ') : esc(G.cars[w].lo.name) + ' победил'}</div>`;
+    center = `<div class="big">${w < 0 ? 'НИЧЬЯ' : online && w === myIndex() ? 'ПОБЕДА!' : online && G.cars.length === 2 ? 'ПОРАЖЕНИЕ' : esc(G.cars[w].lo.name) + ' победил'}</div>`;
   } else if (G.ms === 'over') {
-    const w = G.wins[0] >= G.WINS ? 0 : 1;
-    center = `<div class="big">${online ? (w === myIndex() ? 'ЧЕМПИОН!' : 'ПОРАЖЕНИЕ') : esc(G.cars[w].lo.name) + ' — чемпион'}</div>`;
+    const w = Math.max(0, G.wins.findIndex(v => v >= G.WINS));
+    center = `<div class="big">${online && w === myIndex() ? 'ЧЕМПИОН!' : esc(G.cars[w].lo.name) + ' — чемпион'}</div>`;
   }
   const ce = $('#center'); if (ce._h !== center) { ce.innerHTML = center; ce._h = center; }
   const ov = $('#over'); ov.classList.toggle('on', G.ms === 'over');
   $('#bRematch').style.display = G.mode === 'client' ? 'none' : '';
-  $('#overWait').textContent = G.mode === 'client' ? 'Ждём, когда хозяин нажмёт «Реванш»' : '';
+  $('#bLobby').style.display = G.mode === 'client' ? 'none' : '';
+  $('#overWait').textContent = G.mode === 'client' ? 'Ждём, что выберет хозяин' : '';
+}
+// монеты за результат (у каждого игрока на своём телефоне)
+function awardCoins() {
+  const me = myIndex(), mc = G.cars[me]; if (!mc || G.cars.length < 2) return;
+  let n = 0, why = '';
+  if (G.game === 'race' && G.ms === 'results' && G.results && G.awardKey !== 'r' + G.round) {
+    G.awardKey = 'r' + G.round;
+    const place = G.results.findIndex(r => r.i === me), res = G.results[place];
+    if (place >= 0 && res && res.t >= 0) { n = [100, 60, 40, 25][Math.min(place, 3)]; why = (place + 1) + ' место'; }
+    else n = 5;
+  }
+  if (G.game === 'derby' && G.ms === 'roundover' && G.decided && G.awardKey !== 'd' + G.round) {
+    G.awardKey = 'd' + G.round;
+    if (G.lastWinner === me) { n = 30; why = 'раунд'; }
+  }
+  if (G.game === 'derby' && G.ms === 'over' && G.awardKey !== 'o' + G.round) {
+    G.awardKey = 'o' + G.round;
+    if (G.wins[me] >= G.WINS) { n = 100; why = 'чемпион'; }
+  }
+  if (n > 0) { addCoins(n); toast(`🪙 +${n} монет${why ? ' — ' + why : ''}`, 3); }
+}
+function scoreText() {
+  if (G.cars.length <= 2) return G.wins[0] + ' : ' + (G.wins[1] || 0);
+  return '★ ' + (G.wins[myIndex()] || 0) + ' из ' + (G.game === 'race' ? G.round : G.WINS);
 }
 
 // =====================================================================
@@ -3415,7 +4012,9 @@ function updateCarVisuals(dt, t) {
       v.root.rotation.order = 'YXZ'; v.root.rotation.x = c.vsp;
       if (G.mode === 'client') { c.tIdx = ti; c.grade = T.grade[ti]; }
       raceEffects(c, v, dt, A);
-      AudioSys.setRpm(i, c.rpm || 900, c.th, i === myIndex() || G.mode === 'local');
+      const camP = G.cams[0] ? G.cams[0].cam.position : null, own = i === myIndex() || (G.mode === 'local' && i < 2);
+      const vol = own ? 1 : camP ? clamp(1 - Math.hypot(camP.x - c.x, camP.z - c.z) / 90, 0, 1) * 0.6 : 0.3;
+      AudioSys.setRpm(i, c.rpm || 900, c.th, vol, c.lo.sport | 0, c.gear | 0);
       return;
     }
     // частицы
@@ -3430,7 +4029,8 @@ function updateCarVisuals(dt, t) {
     if (c.hp < 55 || !c.alive) { if (Math.random() < dt * lerp(6, 30, 1 - c.hp / 55)) { const p = lp(v.hood.x, v.hood.y, v.hood.z); A.fxA.emit(p.x, p.y, p.z, (Math.random() - 0.5), 2 + Math.random() * 1.5, (Math.random() - 0.5), 2.2, 0.6, 2.6, lerp(0.08, 0.35, c.hp / 55), lerp(0.08, 0.35, c.hp / 55), lerp(0.08, 0.35, c.hp / 55), 0.55, -0.08); } }
     if (c.hp < 25 || !c.alive) { if (Math.random() < dt * 25) { const p = lp(v.hood.x + (Math.random() - 0.5) * 0.5, v.hood.y, v.hood.z); A.fxB.emit(p.x, p.y, p.z, 0, 1.5 + Math.random(), 0, 0.5, 0.7, 0.15, 1, 0.5 + Math.random() * 0.3, 0.1, 1, -0.3); } }
     // звук мотора
-    AudioSys.setEngine(i, fwd, c.th, c.alive, c.boost, 0);
+    const cp = G.cams[0] ? G.cams[0].cam.position : null;
+    AudioSys.setEngine(i, fwd, c.th, c.alive, c.boost, 0, i === myIndex() || (G.mode === 'local' && i < 2) ? 1 : cp ? clamp(1 - Math.hypot(cp.x - c.x, cp.z - c.z) / 60, 0, 1) * 0.55 : 0.4);
   });
 }
 function updatePopups(dt) {
@@ -3503,13 +4103,23 @@ function frame() {
     renderer.render(Show.scene, Show.cam);
     if (G.mode === 'client' && G.joining && performance.now() - Net.joinStart > 15000) { G.joining = false; Net.reset(); $('#joinStatus').textContent = 'Комната не отвечает. Проверь ID и интернет.'; }
     if (G.mode === 'client' && G.joining && Net.conn && Net.conn.open && Math.random() < dt * 2) sendHello();
+    if (G.phase === 'lobby' && (Net.lobbyT -= dt) < 0) {
+      Net.lobbyT = 1;
+      if (G.mode === 'host') { Net.bcast(lobbyMsg()); for (const p of Net.peers.slice()) if (performance.now() - p.lastRecv > 15000) peerLeft(p); }
+      if (G.mode === 'client') { Net.send({ t: 'ping' }); if (performance.now() - Net.lastRecv > 15000) endMatch('Связь с комнатой потеряна.'); }
+    }
     return;
   }
   // ввод
   const touch = touchInput();
   let mine;
   if (G.mode === 'local') { G.cars[0].input = combine(keyInput(1), touch); G.cars[1].input = keyInput(2); mine = G.cars[0].input; }
-  else { mine = combine(keyInput(0), touch); if (G.mode === 'host') { G.cars[0].input = mine; G.cars[1].input = G.remoteInput; } else if (G.mode === 'solo') G.cars[0].input = mine; }
+  else {
+    mine = combine(keyInput(0), touch);
+    if (G.mode !== 'client') G.cars[0].input = mine;
+    if (G.mode === 'host') for (const p of Net.peers) if (p.idx > 0 && G.cars[p.idx]) G.cars[p.idx].input = p.input;
+  }
+  if (G.mode !== 'client') for (const c of G.cars) if (c.bot) c.input = G.game === 'race' ? botRace(c) : botDerby(c, dt);
 
   if (G.mode === 'client') {
     G.stateTimer -= dt;
@@ -3522,7 +4132,7 @@ function frame() {
       while (acc >= STEP) {
         acc -= STEP;
         stepRace(own, STEP / 2); stepRace(own, STEP / 2); raceAfterStep(own, STEP, true);
-        const other = G.cars[1 - myIndex()]; if (other) pushCars(own, other);
+        for (const other of G.cars) if (other !== own && !other.gone) pushCars(own, other);
       }
     }
   } else {
@@ -3530,7 +4140,7 @@ function frame() {
     while (acc >= STEP) {
       acc -= STEP;
       if (G.game === 'race') {
-        if (G.mode === 'host') applyRemoteCar();
+        if (G.mode === 'host') for (const p of Net.peers) if (p.remoteCar && p.idx > 0) { applyRemoteCar(G.cars[p.idx], p.remoteCar); p.remoteCar = null; }
         for (const c of G.cars) { stepRace(c, STEP / 2); stepRace(c, STEP / 2); raceAfterStep(c, STEP); }
         if (G.cars.length > 1) raceCollide();
         simulateRace(STEP);
@@ -3546,7 +4156,13 @@ function frame() {
     Net.sendT -= dt;
     if (Net.sendT <= 0) {
       Net.sendT = 1 / 30;
-      if (G.mode === 'host' && G.ms !== 'wait' && !Net.busy()) sendState();
+      if (G.mode === 'host' && G.ms !== 'wait') sendState();
+      if (G.mode === 'host' && G.ms === 'wait' && G.startMsg) {
+        // ждём, пока все загрузятся; потерянный «старт» отправляем ещё раз
+        const ps = Net.peers.filter(p => p.idx > 0);
+        if (performance.now() - Net.startT > 1000) { Net.startT = performance.now(); for (const p of ps) if (!p.ready) Net.sendTo(p, Object.assign({ me: p.idx }, G.startMsg)); }
+        if (ps.every(p => p.ready) || performance.now() - Net.startT0 > 25000) { G.startMsg = null; if (G.game === 'race') startRace(); else startTraining(); }
+      }
       if (G.mode === 'client') {
         if (!Net.gotState) Net.send({ t: 'ready' });
         const msg = { t: 'in', a: r2(mine.th), b: r2(mine.st), n: mine.n };
@@ -3556,7 +4172,8 @@ function frame() {
       }
     }
     const limit = G.ms === 'wait' ? 45000 : 9000;
-    if (now - Net.lastRecv > limit) { endMatch('Связь потеряна. Проверь интернет.'); return; }
+    if (G.mode === 'client' && now - Net.lastRecv > limit) { endMatch('Связь потеряна. Проверь интернет.'); return; }
+    if (G.mode === 'host') for (const p of Net.peers.slice()) if (now - p.lastRecv > limit) peerLeft(p);
   }
   // эффекты
   const A = G.arena;
@@ -3571,9 +4188,19 @@ function frame() {
   if (A.race) { const me = G.cars[myIndex()]; AudioSys.screech(me ? me.slip * clamp(Math.hypot(me.vx, me.vz) / 15, 0, 1) : 0); }
   if (A.rain) {
   const ra = A.rain.arr;
+  if (A.rain.race) {
+    const cp = G.cams[0] ? G.cams[0].cam.position : { x: 0, y: 0, z: 0 }, sp = A.rain.sp, ln = A.rain.len, sw = A.rain.snow ? Math.sin(t * 1.3) * 0.8 : 2.5;
+    for (let i = 0; i < A.rain.n; i++) {
+      const o = i * 6; ra[o + 1] -= sp * dt; ra[o + 4] -= sp * dt; ra[o] -= sw * dt; ra[o + 3] -= sw * dt;
+      if (ra[o + 4] < cp.y - 6 || Math.abs(ra[o] - cp.x) > 60 || Math.abs(ra[o + 2] - cp.z) > 60) {
+        const x = cp.x + (Math.random() - 0.5) * 110, z = cp.z + (Math.random() - 0.5) * 110, y = cp.y + 4 + Math.random() * 24;
+        ra[o] = x; ra[o + 1] = y; ra[o + 2] = z; ra[o + 3] = x - 0.05; ra[o + 4] = y - ln; ra[o + 5] = z + 0.02;
+      }
+    }
+  } else
   for (let i = 0; i < A.rain.n; i++) {
-    const o = i * 6; ra[o + 1] -= 24 * dt; ra[o + 4] -= 24 * dt; ra[o] -= 2.5 * dt; ra[o + 3] -= 2.5 * dt;
-    if (ra[o + 4] < 0) { const x = (Math.random() - 0.5) * 120, z = (Math.random() - 0.5) * 120, y = 26 + Math.random() * 6; ra[o] = x; ra[o + 1] = y; ra[o + 2] = z; ra[o + 3] = x - 0.05; ra[o + 4] = y - 0.9; ra[o + 5] = z + 0.02; if (!MOBILE && Math.hypot(x, z) < ARENA_R && Math.random() < 0.3) A.fxA.emit(x, 0.05, z, 0, 0.6, 0, 0.25, 0.05, 0.22, 0.8, 0.82, 0.86, 0.3, 0.1); }
+    const o = i * 6, sp = A.rain.sp || 24; ra[o + 1] -= sp * dt; ra[o + 4] -= sp * dt; ra[o] -= 2.5 * dt; ra[o + 3] -= 2.5 * dt;
+    if (ra[o + 4] < 0) { const x = (Math.random() - 0.5) * 120, z = (Math.random() - 0.5) * 120, y = 26 + Math.random() * 6; ra[o] = x; ra[o + 1] = y; ra[o + 2] = z; ra[o + 3] = x - 0.05; ra[o + 4] = y - (A.rain.len || 0.9); ra[o + 5] = z + 0.02; if (!MOBILE && Math.hypot(x, z) < ARENA_R && Math.random() < 0.3) A.fxA.emit(x, 0.05, z, 0, 0.6, 0, 0.25, 0.05, 0.22, 0.8, 0.82, 0.86, 0.3, 0.1); }
   }
   A.rain.geo.attributes.position.needsUpdate = true;
   }
@@ -3582,18 +4209,24 @@ function frame() {
     const d = G.debris[k]; d.t += dt;
     d.vy -= 20 * dt; d.m.position.x += d.vx * dt; d.m.position.y += d.vy * dt; d.m.position.z += d.vz * dt; d.m.rotation.x += d.rx * dt; d.m.rotation.z += d.rz * dt;
     if (d.m.position.y < 0.05) { d.m.position.y = 0.05; d.vy *= -0.3; d.vx *= 0.6; d.vz *= 0.6; d.rx *= 0.5; d.rz *= 0.5; }
-    if (d.t > 6) { A.scene.remove(d.m); G.debris.splice(k, 1); }
+    if (d.t > 6) { if (!d.part) A.scene.remove(d.m); G.debris.splice(k, 1); }
   }
   if (A.flashT > 0) { A.flashT -= dt; A.flash.intensity = 60 * Math.max(0, A.flashT / 0.8) ** 2; } else A.flash.intensity = 0;
   A.fxA.update(dt); A.fxB.update(dt);
-  if (A.race) AudioSys.ambient(0.015 + Math.min(G.cheer, 1.2) * 0.05, 0);
-  else AudioSys.ambient(0.05 + Math.min(G.cheer, 1.2) * 0.12 + (A.fans.waveOn ? 0.03 : 0), 0.035);
+  if (A.race) AudioSys.ambient(0.015 + Math.min(G.cheer, 1.2) * 0.05, A.rain && !A.rain.snow ? 0.04 : 0);
+  else AudioSys.ambient(0.05 + Math.min(G.cheer, 1.2) * 0.12 + (A.fans.waveOn ? 0.03 : 0), A.rain && A.arena === 0 ? 0.035 : 0);
   if (A.race && A.sun && G.cams[0]) {
     const f = G.cars[G.cams[0].target];
-    A.sun.position.set(f.x - 70, f.y + 90, f.z - 45); A.sun.target.position.set(f.x, f.y, f.z); A.sun.target.updateMatrixWorld();
+    A.sun.position.set(f.x - 70, f.y + (A.sunY || 90), f.z - 45); A.sun.target.position.set(f.x, f.y, f.z); A.sun.target.updateMatrixWorld();
     if (A.sky) A.sky.position.copy(G.cams[0].cam.position);
   }
   const camFn = A.race ? updateRaceCam : updateCam;
+  if (!A.race && G.cams.length === 1) {
+    const me = G.cars[myIndex()], cc = G.cams[0];
+    if (me && !me.alive && G.ms === 'playing') {
+      if (!G.cars[cc.target] || !G.cars[cc.target].alive) { const a = G.cars.find(c => c.alive && !c.gone); if (a && a.i !== cc.target) { cc.target = a.i; cc.snap = true; } }
+    } else if (cc.target !== myIndex()) { cc.target = myIndex(); cc.snap = true; }
+  }
   // камеры и отрисовка
   const W = innerWidth, H = innerHeight;
   const ps = renderer.getPixelRatio();
@@ -3608,6 +4241,7 @@ function frame() {
     renderer.render(A.scene, G.cams[0].cam);
   }
   updatePopups(dt);
+  updateTags();
   updateHud(dt);
 }
 
