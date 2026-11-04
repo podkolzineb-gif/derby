@@ -6,6 +6,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#05060a">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Дерби">
+<link rel="apple-touch-icon" id="appIcon" href="data:,">
 <title>Дерби в грязи</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,6 +42,14 @@ box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);transit
 .seg div{flex:1;text-align:center;padding:calc(var(--u)*1) 0;border-radius:calc(var(--u)*1);font:800 calc(var(--u)*2) Rubik,sans-serif;letter-spacing:.05em;color:#cfd3dc;cursor:pointer}
 .seg div.on{background:linear-gradient(180deg,#ffc04a,#ff6a0a);color:#2a1202}
 .namebox{display:flex;align-items:center;gap:calc(var(--u)*1.2);padding:calc(var(--u)*.8) calc(var(--u)*1.6);font-size:calc(var(--u)*1.9)}
+.qbtn{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1;padding:calc(var(--u)*.45) calc(var(--u)*1);font:600 calc(var(--u)*1.5) Rubik,sans-serif;border-radius:calc(var(--u)*.9);background:rgba(255,255,255,.08);border:1px solid var(--line);color:#fff;cursor:pointer}
+.qbtn small{opacity:.6;font-size:.8em}.qbtn b{color:var(--acc2);font-weight:800}
+.tip{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);padding:calc(var(--u)*2)}
+.tip.on{display:flex}
+.tipbox{max-width:min(92vw,calc(var(--u)*72));max-height:92vh;overflow:auto;padding:calc(var(--u)*2.4) calc(var(--u)*3);font-size:calc(var(--u)*2);line-height:1.4;display:flex;flex-direction:column;gap:calc(var(--u)*1)}
+.tipbox h2{margin:0;font:400 calc(var(--u)*3.2) 'Russo One',sans-serif;color:var(--acc2)}
+.tipbox ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:calc(var(--u)*.7)}
+.tipbox p{margin:0}.tipbox .dim{opacity:.6}
 .namebox input{flex:1;min-width:0;font:700 calc(var(--u)*2.1) Rubik,sans-serif;color:var(--acc2);background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:calc(var(--u)*.9);padding:calc(var(--u)*.8) calc(var(--u)*1.2);-webkit-user-select:text;user-select:text;outline:none}
 .carcard{position:absolute;left:var(--sl);bottom:var(--sb);width:min(32vw,calc(var(--u)*40));padding:calc(var(--u)*1.1) calc(var(--u)*1.6)}
 .carcard h3{margin:0 0 calc(var(--u)*.6) 0;font:800 calc(var(--u)*2.2) Rubik,sans-serif}
@@ -136,7 +147,7 @@ box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);transit
 #rSpeed{left:50%;bottom:var(--sb);transform:translateX(-50%);min-width:calc(var(--u)*18)}
 #rSpeed .v{font-size:calc(var(--u)*5.4)}
 #rSpeed .g{position:absolute;right:calc(var(--u)*1.2);top:calc(var(--u)*.7);font:calc(var(--u)*2.2) 'Russo One',Rubik,sans-serif;color:var(--acc2)}
-#mini{position:absolute;right:calc(var(--sr) + var(--u)*7);top:var(--st);width:calc(var(--u)*20);height:calc(var(--u)*20);border-radius:calc(var(--u)*1.4);background:rgba(10,12,18,.55);border:1px solid var(--line)}
+#mini{position:absolute;right:calc(var(--sr) + var(--u)*7);top:var(--st);width:min(calc(var(--u)*20),26vh);height:min(calc(var(--u)*20),26vh);border-radius:calc(var(--u)*1.4);background:rgba(10,12,18,.55);border:1px solid var(--line)}
 .lights{position:absolute;left:50%;top:14%;transform:translateX(-50%);display:none;gap:calc(var(--u)*1.2);padding:calc(var(--u)*1.2) calc(var(--u)*1.8);background:rgba(10,10,12,.85);border-radius:calc(var(--u)*1.6);border:2px solid #333}
 .lights.on{display:flex}
 .lights i{width:calc(var(--u)*5);height:calc(var(--u)*5);border-radius:50%;background:#2a0a0a;box-shadow:inset 0 0 10px #000}
@@ -174,11 +185,23 @@ box-shadow:0 6px 24px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.12);transit
     <button class="btn" id="bSolo">Заезд на время</button>
     <button class="btn" id="bGarage">Гараж</button>
     <button class="btn sm" id="bLocal">Двое на одном экране</button>
-    <div class="namebox glass"><span>Имя:</span><input id="name" maxlength="14" autocomplete="off" spellcheck="false"></div>
+    <div class="namebox glass"><span>Имя:</span><input id="name" maxlength="14" autocomplete="off" spellcheck="false"><button class="qbtn" id="bQual"></button></div>
   </div>
   <div class="carcard glass" id="carcard"></div>
   <button class="btn fs" id="bFull" title="Во весь экран">⛶</button>
 </div>
+
+<div id="iosTip" class="tip"><div class="tipbox glass">
+  <h2>ВЕСЬ ЭКРАН НА IPHONE</h2>
+  <p>Safari на iPhone не даёт сайтам открываться на весь экран. Но игру можно поставить как приложение:</p>
+  <ol>
+    <li>Нажми <b>Поделиться</b> — квадрат со стрелкой вверх (в Chrome — меню <b>⋯</b>).</li>
+    <li>Выбери <b>«На экран „Домой“»</b> и нажми <b>Добавить</b>.</li>
+    <li>Запускай игру с новой иконки — она откроется на весь экран, без адресной строки.</li>
+  </ol>
+  <p class="dim">Телефон лучше держать горизонтально.</p>
+  <button class="btn" id="bTipOk">Понятно</button>
+</div></div>
 
 <div id="host" class="screen">
   <div class="panel glass">
@@ -257,7 +280,7 @@ const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
 const lerp = (a, b, t) => a + (b - a) * t;
 const MOBILE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
 const ARENA_R = 44;
-const VERSION = 'web-3';
+const VERSION = 'web-5';
 
 function mulberry(seed) {
   return function () {
@@ -373,12 +396,19 @@ let my = loadLoadout();
 // =====================================================================
 //  Рендер
 // =====================================================================
+// ---------- качество графики: авто / быстро / красиво ----------
+const IOS = /iPhone|iPod/i.test(navigator.userAgent);
+const QUAL = { mode: store.get('derby_q', 'auto'), dyn: 1, t0: performance.now(), n: 0, good: 0, bad: 0 };
+if (!['auto', 'low', 'high'].includes(QUAL.mode)) QUAL.mode = 'auto';
+function qLevel() { return QUAL.mode === 'low' ? 0 : QUAL.mode === 'high' ? 2 : (MOBILE ? 1 : 2); }
+function basePR() { const d = window.devicePixelRatio || 1, l = qLevel(); return Math.min(d, l === 0 ? 1 : l === 1 ? 1.3 : 2); }
 const canvas = $('#c');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: !MOBILE, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, MOBILE ? 1.5 : 2));
+renderer.setPixelRatio(basePR());
 renderer.setSize(window.innerWidth, window.innerHeight, false);
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.type = qLevel() === 2 ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
+renderer.shadowMap.enabled = qLevel() > 0;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.05;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -631,7 +661,7 @@ function mats() {
   M.black = new THREE.MeshStandardMaterial({ color: 0x0b0b0c, roughness: 0.6 });
   M.plastic = new THREE.MeshStandardMaterial({ color: 0x141416, roughness: 0.45 });
   M.steel = new THREE.MeshStandardMaterial({ color: 0x55585e, metalness: 0.85, roughness: 0.45, envMap: envTex });
-  M.glass = new THREE.MeshPhysicalMaterial({ color: 0x0a0d12, metalness: 0.1, roughness: 0.05, envMap: envTex, envMapIntensity: 1.4, clearcoat: 1 });
+  M.glass = MOBILE ? new THREE.MeshStandardMaterial({ color: 0x0a0d12, metalness: 0.3, roughness: 0.05, envMap: envTex, envMapIntensity: 1.4 }) : new THREE.MeshPhysicalMaterial({ color: 0x0a0d12, metalness: 0.1, roughness: 0.05, envMap: envTex, envMapIntensity: 1.4, clearcoat: 1 });
   M.lens = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xfff0d0, emissiveIntensity: 3 });
   M.lamp = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xfff6e8, emissiveIntensity: 5 });
   M.amber = new THREE.MeshStandardMaterial({ color: 0xff9a20, emissive: 0xff7a10, emissiveIntensity: 1.2 });
@@ -1793,10 +1823,21 @@ const PICK_COL = ['#38e65a', '#38d9ff', '#ff3a26'];
 //  Сеть (PeerJS / WebRTC)
 // =====================================================================
 const PREFIX = 'mud-derby-r1-';
+// игровой канал без повторных отправок: старые снимки не копятся в очереди (иначе задержка растёт до секунд)
+(function () {
+  try {
+    const P = window.RTCPeerConnection && RTCPeerConnection.prototype, orig = P && P.createDataChannel;
+    if (!orig) return;
+    P.createDataChannel = function (label, opts) { if (label === 'derby-game') opts = Object.assign({}, opts, { ordered: false, maxRetransmits: 0 }); return orig.call(this, label, opts); };
+  } catch (e) { }
+})();
 const Net = {
   peer: null, conn: null, roomId: '', lastRecv: 0, sendT: 0, gotState: false, helloT: 0, joinStart: 0, lastHostT: -1, clockOff: 0, clockInit: false,
   reset() { try { if (this.conn) this.conn.close(); } catch (e) { } try { if (this.peer) this.peer.destroy(); } catch (e) { } this.peer = null; this.conn = null; this.gotState = false; this.lastHostT = -1; this.clockInit = false; },
   send(o) { try { if (this.conn && this.conn.open) this.conn.send(o); } catch (e) { } },
+  // частые сообщения (снимки, управление): если канал занят — пропускаем, свежие важнее старых
+  busy() { const c = this.conn; if (!c) return true; const dc = c.dataChannel || c._dc; return (c.bufferSize || 0) > 0 || (dc && dc.bufferedAmount > 6000); },
+  sendFast(o) { if (!this.busy()) this.send(o); },
 };
 function peerOk() { if (typeof window.Peer === 'undefined') { toast('Нет связи с сервером комнат. Проверь интернет.'); return false; } return true; }
 
@@ -1838,7 +1879,7 @@ function joinRoom(id) {
   const p = new window.Peer({ debug: 0 });
   Net.peer = p;
   p.on('open', () => {
-    const c = p.connect(PREFIX + id, { serialization: 'json', reliable: false });
+    const c = p.connect(PREFIX + id, { label: 'derby-game', serialization: 'json', reliable: false });
     Net.conn = c;
     c.on('open', () => { Net.lastRecv = performance.now(); sendHello(); });
     c.on('data', onNet);
@@ -1864,6 +1905,7 @@ function onNet(m) {
       if (G.phase === 'match' && G.ms === 'wait') { if (G.game === 'race') startRace(); else startTraining(); }
     } else if (m.t === 'in') {
       G.remoteInput = { th: clamp(+m.a || 0, -1, 1), st: clamp(+m.b || 0, -1, 1), n: !!m.n };
+      if (Array.isArray(m.p) && m.p.length >= 16 && m.r === G.round && G.game === 'race') G.remoteCar = m.p;
     } else if (m.t === 'bye') endMatch('Соперник вышел из игры.');
   } else if (G.mode === 'client') {
     if (m.t === 'welcome') {
@@ -1884,9 +1926,9 @@ function sendState() {
     t: 's', T: r2(now), m: G.ms, st: r2(G.stateTimer), rt: r2(G.roundTime), r: G.round, w: G.wins, o: G.overtime, d: G.decided, c: G.centerText, ch: r2(G.cheer),
     k: G.cars.map(c => [r2(c.x), r2(c.y), r2(c.z), Math.round(c.yaw * 1000) / 1000, r2(c.pitch), r2(c.roll), r2(c.vx), r2(c.vz), r2(c.hp), r2(c.nitro), r2(c.ram), (c.alive ? 1 : 0) | (c.boost ? 2 : 0) | (c.ground ? 4 : 0), r2(c.th), r2(c.str),
       c.lap | 0, Math.round(c.s || 0), Math.round(c.rpm || 0), c.gear | 0, r2(c.slip || 0), c.surf | 0, r2(c.best || 0), r2(c.lapStart || 0), c.finished ? 1 : 0, r2(c.finishT || 0), r2(c.lastLap || 0)]),
-    lw: G.lastWinner, rt2: r2(G.raceTime || 0), ft: r2(G.finishTimer || 0), res: G.results || null,
-    p: G.pickups.map(p => [p.id, p.type, r2(p.x), r2(p.z)]),
-    e: G.evLog.map(e => ({ i: e.i, y: e.y, a: e.a, b: e.b, x: e.x, yy: e.yy, z: e.z, f1: e.f1, f2: e.f2, f3: e.f3, tx: e.tx, c: e.c }))
+    lw: G.lastWinner, rt2: r2(G.raceTime || 0), ft: r2(G.finishTimer || 0), res: G.results || undefined,
+    p: G.pickups.length ? G.pickups.map(p => [p.id, p.type, r2(p.x), r2(p.z)]) : undefined,
+    e: !G.evLog.length ? undefined : G.evLog.map(e => ({ i: e.i, y: e.y, a: e.a, b: e.b, x: e.x, yy: e.yy, z: e.z, f1: e.f1, f2: e.f2, f3: e.f3, tx: e.tx, c: e.c }))
   });
 }
 function readState(s) {
@@ -1897,6 +1939,7 @@ function readState(s) {
   G.cheer = Math.max(G.cheer, s.ch || 0);
   (s.k || []).forEach((k, i) => {
     const c = G.cars[i]; if (!c) return;
+    if (G.game === 'race' && i === myIndex()) { readOwnRaceCar(c, k, reset); return; }
     if (reset) { c.buf = []; c.deadShown = false; if (G.vis[i]) resetDents(G.vis[i]); }
     const last = c.buf[c.buf.length - 1];
     if (last && Math.hypot(last.x - k[0], last.z - k[2]) > 8) c.buf = [];
@@ -1916,6 +1959,24 @@ function readState(s) {
   if (!Net.clockInit) { Net.clockOff = off; Net.clockInit = true; }
   else Net.clockOff = off > Net.clockOff ? lerp(Net.clockOff, off, 0.3) : lerp(Net.clockOff, off, 0.02);
   Net.gotState = true;
+}
+function readOwnRaceCar(c, k, reset) {
+  c.lap = k[14]; c.best = k[20]; c.lapStart = k[21]; c.finished = !!k[22]; c.finishT = k[23]; c.lastLap = k[24];
+  if (reset || !c.localInit) {
+    Object.assign(c, { x: k[0], y: k[1], z: k[2], yaw: k[3], vx: k[6], vz: k[7], av: 0, steer: 0, gear: k[17] | 0, rpm: k[16] || 900, ax: 0, slip: 0, hbT: 9, pitch: 0, roll: 0, shiftT: 0, cd: 0, marks: [null, null], buf: [] });
+    c.s = trackLocate(c, true); c.y = trackY(c.s) + 0.05; c.grade = trackGrade(c.s);
+    c.localInit = true;
+  }
+}
+// у хозяина: машина соперника в гонке подтягивается к тому, что прислал его телефон
+function applyRemoteCar() {
+  const p = G.remoteCar; if (!p) return; G.remoteCar = null;
+  const c = G.cars[1]; if (!c) return;
+  const d = Math.hypot(c.x - p[0], c.z - p[2]), k = d > 4 ? 1 : 0.6;
+  c.x = lerp(c.x, p[0], k); c.z = lerp(c.z, p[2], k); c.y = p[1];
+  let dy = p[3] - c.yaw; dy = Math.atan2(Math.sin(dy), Math.cos(dy)); c.yaw += dy * k;
+  c.vx = p[4]; c.vz = p[5]; c.av = p[6]; c.steer = p[7]; c.gear = p[8]; c.rpm = p[9]; c.slip = p[10]; c.surf = p[11];
+  if (d > 4) c.tIdx = Math.round(trackLocate(c, true) / trackData().ds) % trackData().N;
 }
 function interpCar(c, rt) {
   const b = c.buf; if (!b.length) return;
@@ -2001,8 +2062,8 @@ const trackGrade = s => { const T = trackData(), i = ((Math.round(s / T.ds) % T.
 // рельеф: сетка высот. Рядом с трассой земля ровно под дорогой, дальше — холмы и горы
 let TR = null;
 function terrainData() {
-  if (TR) return TR;
-  const T = trackData(), M = 760, step = MOBILE ? 12 : 8;
+  if (TR && TR.step === [16, 12, 8][qLevel()]) return TR;
+  const T = trackData(), M = 760, step = [16, 12, 8][qLevel()];
   const x0 = T.minX - M, z0 = T.minZ - M;
   const nx = Math.ceil((T.maxX - T.minX + 2 * M) / step) + 1, nz = Math.ceil((T.maxZ - T.minZ + 2 * M) / step) + 1;
   const near = new Int32Array(nx * nz).fill(-1), dist = new Float32Array(nx * nz).fill(1e9);
@@ -2180,7 +2241,7 @@ function stepRace(c, dt) {
   c.pitch = lerp(c.pitch, clamp(-axl * 0.006, -0.05, 0.05), 1 - Math.exp(-dt * 6));
   c.roll = lerp(c.roll, clamp(-ayl * 0.006, -0.07, 0.07), 1 - Math.exp(-dt * 6));
 }
-function raceAfterStep(c, dt) {
+function raceAfterStep(c, dt, noLaps) {
   const T = trackData();
   const prevS = c.s;
   c.s = trackLocate(c, false);
@@ -2197,6 +2258,7 @@ function raceAfterStep(c, dt) {
     }
     c.lat = sg * lim;
   }
+  if (noLaps) return;
   if (prevS > T.L * 0.75 && c.s < T.L * 0.25) {
     c.lap++;
     if (c.lap >= 2) { const lt = G.raceTime - c.lapStart; c.lapTimes.push(lt); c.lastLap = lt; if (!c.best || lt < c.best) c.best = lt; }
@@ -2412,13 +2474,13 @@ function buildSport(lo, withLights) {
   s.lineTo(d.tail[0], d.tail[1]);
   s.splineThru(d.top.map(q => new THREE.Vector2(q[0], q[1])));
   s.closePath();
-  const lowerGeo = smoothGeo(sculptBody(subdivCaps(extrudeShape(s, d.w, 0.05, 28), MOBILE ? 4 : 5), d));
+  const lowerGeo = smoothGeo(sculptBody(subdivCaps(extrudeShape(s, d.w, 0.05, MOBILE ? 18 : 28), MOBILE ? 3 : 5), d));
   const lowerOrig = lowerGeo.attributes.position.array.slice();
   mesh(lowerGeo, paint, body);
   // ниши колёс изнутри (чтобы не просвечивало)
   for (const wz of [d.wf, d.wb]) box(body, d.w - 0.75, wy + R - d.yb - 0.02, R * 2, m.liner, 0, (wy + R + d.yb + 0.02) / 2, wz);
   // стекло и крыша
-  const glass = smoothGeo(sculpt(subdivCaps(extrudeShape(profShape(d.gh), d.cw, 0.03, 20), 4), L, d.belt, d.tg, 0.05, 0.05));
+  const glass = smoothGeo(sculpt(subdivCaps(extrudeShape(profShape(d.gh), d.cw, 0.03, MOBILE ? 12 : 20), MOBILE ? 3 : 4), L, d.belt, d.tg, 0.05, 0.05));
   mesh(glass, m.glass, body);
   if (d.roof) {
     const up = d.roof.map(q => [q[0], q[1] + 0.045]), dn = d.roof.slice().reverse().map(q => [q[0], q[1] + 0.012]);
@@ -2607,7 +2669,8 @@ function buildTrackWorld() {
   const sc = new THREE.Scene();
   sc.environment = envTex;
   sc.background = new THREE.Color(0xa8c4e4);
-  sc.fog = new THREE.Fog(0xb9cde4, 380, MOBILE ? 1700 : 2500);
+  const QL = qLevel();
+  sc.fog = new THREE.Fog(0xb9cde4, [260, 340, 380][QL], [1100, 1600, 2500][QL]);
   const A = { scene: sc, puddles: [], tires: [], ramps: [], fans: null, rain: null, race: true };
   const sky = new THREE.Mesh(new THREE.SphereGeometry(3600, 32, 16), new THREE.ShaderMaterial({
     side: THREE.BackSide, depthWrite: false, fog: false,
@@ -2619,7 +2682,7 @@ function buildTrackWorld() {
   sc.add(new THREE.HemisphereLight(0xd8e6ff, 0x5a6a3a, 0.75));
   const sun = new THREE.DirectionalLight(0xfff0dc, 2.3);
   sun.castShadow = true;
-  sun.shadow.mapSize.set(MOBILE ? 1024 : 2048, MOBILE ? 1024 : 2048);
+  sun.shadow.mapSize.set(QL === 2 ? 2048 : 1024, QL === 2 ? 2048 : 1024);
   const shc = sun.shadow.camera; shc.left = -75; shc.right = 75; shc.top = 75; shc.bottom = -75; shc.near = 10; shc.far = 320;
   sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.04;
   sc.add(sun); sc.add(sun.target);
@@ -2814,7 +2877,7 @@ function buildTrackWorld() {
 
   // ---------- лес ----------
   {
-    const nT = MOBILE ? 2600 : 7500, maxR = 820;
+    const nT = [900, 2200, 7500][QL], maxR = [520, 700, 820][QL];
     const pines = new THREE.InstancedMesh(new THREE.ConeGeometry(1, 1, 7).translate(0, 0.5, 0), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.92 }), nT * 3);
     const leafy = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 1), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9, flatShading: true }), nT);
     const trunks = new THREE.InstancedMesh(new THREE.CylinderGeometry(0.2, 0.3, 1, 6).translate(0, 0.5, 0), new THREE.MeshStandardMaterial({ color: 0x4a3420, roughness: 0.95 }), nT);
@@ -2850,9 +2913,9 @@ function buildTrackWorld() {
       nt++;
     }
     pines.count = np; leafy.count = nl; trunks.count = nt;
-    for (const m of [pines, leafy, trunks]) { m.castShadow = true; m.receiveShadow = true; sc.add(m); }
+    for (const m of [pines, leafy, trunks]) { m.castShadow = QL === 2; m.receiveShadow = QL === 2; sc.add(m); }
     // кусты и камни у дороги
-    const nB = MOBILE ? 500 : 1500, nR = MOBILE ? 180 : 450;
+    const nB = [250, 500, 1500][QL], nR = [100, 180, 450][QL];
     const bush = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9, flatShading: true }), nB);
     const rocks = new THREE.InstancedMesh(new THREE.DodecahedronGeometry(1, 0), new THREE.MeshStandardMaterial({ color: 0x8c8780, roughness: 0.95, flatShading: true }), nR);
     let nb = 0, nr = 0; tries = 0;
@@ -2872,7 +2935,7 @@ function buildTrackWorld() {
       }
     }
     bush.count = nb; rocks.count = nr;
-    for (const m of [bush, rocks]) { m.castShadow = true; m.receiveShadow = true; sc.add(m); }
+    for (const m of [bush, rocks]) { m.castShadow = QL === 2; m.receiveShadow = QL === 2; sc.add(m); }
   }
   // дальние горы
   {
@@ -2945,7 +3008,9 @@ function updateRaceCam(cc, dt) {
   if (Math.abs(cc.cam.fov - fov) > 0.05) { cc.cam.fov = lerp(cc.cam.fov, fov, 1 - Math.exp(-dt * 3)); cc.cam.updateProjectionMatrix(); }
 }
 let miniBase = null;
+let miniT = 0;
 function drawMini() {
+  const nowM = performance.now(); if (nowM - miniT < 66) return; miniT = nowM;
   const cv = $('#mini'), x = cv.getContext('2d'), T = trackData(), S = cv.width, pad = 14;
   const sc = (S - pad * 2) / Math.max(T.maxX - T.minX, T.maxZ - T.minZ);
   const px = X => pad + (X - T.minX) * sc, pz = Z => pad + (Z - T.minZ) * sc;
@@ -3167,7 +3232,27 @@ $('#modeSeg').addEventListener('click', e => { const d = e.target.closest('[data
 $('#bSolo').onclick = () => { AudioSys.init(); G.mode = 'solo'; G.seed = 1; beginLoading(); };
 $('#bLocal').onclick = () => { AudioSys.init(); G.game = G.game || 'derby'; G.mode = 'local'; G.seed = 1 + Math.floor(Math.random() * 1e9); beginLoading(); };
 if (MOBILE) $('#bLocal').style.display = 'none';
-$('#bFull').onclick = () => { const d = document.documentElement; try { (d.requestFullscreen || d.webkitRequestFullscreen).call(d); } catch (e) { } try { screen.orientation.lock('landscape'); } catch (e) { } };
+const STANDALONE = navigator.standalone === true || (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || (window.matchMedia && matchMedia('(display-mode: fullscreen)').matches);
+if (STANDALONE) $('#bFull').style.display = 'none';
+$('#bFull').onclick = () => {
+  const d = document.documentElement, fn = d.requestFullscreen || d.webkitRequestFullscreen;
+  if (IOS || !fn) { $('#iosTip').classList.add('on'); return; }
+  try { const p = fn.call(d); if (p && p.catch) p.catch(() => $('#iosTip').classList.add('on')); } catch (e) { $('#iosTip').classList.add('on'); }
+  try { screen.orientation.lock('landscape').catch(() => { }); } catch (e) { }
+};
+$('#bTipOk').onclick = () => $('#iosTip').classList.remove('on');
+$('#iosTip').addEventListener('click', e => { if (e.target.id === 'iosTip') $('#iosTip').classList.remove('on'); });
+$('#bQual').onclick = () => { QUAL.mode = { auto: 'low', low: 'high', high: 'auto' }[QUAL.mode]; store.set('derby_q', QUAL.mode); applyQuality(); toast(QUAL.mode === 'auto' ? 'Графика: авто — подстроится под телефон' : QUAL.mode === 'low' ? 'Графика: быстро — меньше деревьев и без теней' : 'Графика: красиво — для мощных устройств', 3); };
+applyQuality();
+// иконка для экрана «Домой»
+try {
+  const ic = canvasOf(180, 180), x = ic.getContext('2d');
+  const gr = x.createLinearGradient(0, 0, 0, 180); gr.addColorStop(0, '#ff9a2a'); gr.addColorStop(1, '#c4400a');
+  x.fillStyle = gr; x.fillRect(0, 0, 180, 180);
+  x.fillStyle = '#fff'; x.font = '900 64px Arial, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('ДЕРБИ', 90, 78);
+  x.font = '700 26px Arial, sans-serif'; x.fillText('ГОНКИ', 90, 128);
+  $('#appIcon').href = ic.toDataURL('image/png');
+} catch (e) { }
 $('#bHostCancel').onclick = () => { Net.reset(); G.mode = 'local'; history.replaceState(null, '', location.pathname + location.search); setScreen('menu'); };
 $('#bCopy').onclick = () => {
   const url = location.href.split('#')[0] + '#' + Net.roomId;
@@ -3369,8 +3454,31 @@ function updatePopups(dt) {
 // =====================================================================
 //  Главный цикл
 // =====================================================================
+function applyPR() { renderer.setPixelRatio(Math.max(0.5, basePR() * QUAL.dyn)); renderer.setSize(innerWidth, innerHeight, false); }
+function refreshMats() { const fix = sc => sc && sc.traverse(o => { if (o.material) (Array.isArray(o.material) ? o.material : [o.material]).forEach(m => m.needsUpdate = true); }); fix(Show.scene); if (G.arena) fix(G.arena.scene); }
+function setShadows(on) { if (renderer.shadowMap.enabled === on) return; renderer.shadowMap.enabled = on; refreshMats(); }
+function applyQuality() {
+  QUAL.dyn = 1; QUAL.good = 0; QUAL.bad = 0; applyPR();
+  renderer.shadowMap.type = qLevel() === 2 ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
+  renderer.shadowMap.enabled = qLevel() > 0; refreshMats();
+  const b = $('#bQual'); if (b) b.innerHTML = '<small>Графика</small><b>' + { auto: 'Авто', low: 'Быстро', high: 'Красиво' }[QUAL.mode] + '</b>';
+}
+// следим за FPS: если тормозит — снижаем разрешение, потом выключаем тени
+function perfTick() {
+  QUAL.n++;
+  const now = performance.now(), el = now - QUAL.t0;
+  if (el < 2000) return;
+  const fps = QUAL.n * 1000 / el; QUAL.n = 0; QUAL.t0 = now;
+  if (QUAL.mode !== 'auto' || document.hidden) return;
+  if (fps < 45) {
+    QUAL.good = 0;
+    if (QUAL.dyn > 0.66) { QUAL.dyn = Math.max(0.62, QUAL.dyn - 0.12); applyPR(); }
+    else if (renderer.shadowMap.enabled && ++QUAL.bad >= 2) setShadows(false);
+  } else if (fps > 57) { if (++QUAL.good >= 4 && QUAL.dyn < 1) { QUAL.dyn = Math.min(1, QUAL.dyn + 0.08); QUAL.good = 0; applyPR(); } }
+}
 function onResize() {
   const w = innerWidth, h = innerHeight;
+  renderer.setPixelRatio(Math.max(0.5, basePR() * QUAL.dyn));
   renderer.setSize(w, h, false);
   if (Show.cam) { Show.cam.aspect = w / h; Show.cam.updateProjectionMatrix(); }
   for (const c of G.cams) { c.cam.aspect = (G.cams.length === 2 ? w / 2 : w) / h; c.cam.updateProjectionMatrix(); }
@@ -3383,6 +3491,7 @@ let last = performance.now(), acc = 0;
 const STEP = 1 / 60;
 function frame() {
   requestAnimationFrame(frame);
+  perfTick();
   const now = performance.now();
   let dt = Math.min(0.1, (now - last) / 1000); last = now;
   const t = now / 1000;
@@ -3405,12 +3514,23 @@ function frame() {
   if (G.mode === 'client') {
     G.stateTimer -= dt;
     if (G.game === 'race' && G.ms === 'racing') G.raceTime += dt;
-    if (Net.clockInit) { const rt = now / 1000 + Net.clockOff - 0.1; for (const c of G.cars) interpCar(c, rt); }
+    const own = G.game === 'race' ? G.cars[myIndex()] : null;
+    if (Net.clockInit) { const rt = now / 1000 + Net.clockOff - 0.1; for (const c of G.cars) if (c !== own) interpCar(c, rt); }
+    if (own && own.localInit) {
+      own.input = mine; own.ctl = G.ms === 'racing';
+      acc += dt;
+      while (acc >= STEP) {
+        acc -= STEP;
+        stepRace(own, STEP / 2); stepRace(own, STEP / 2); raceAfterStep(own, STEP, true);
+        const other = G.cars[1 - myIndex()]; if (other) pushCars(own, other);
+      }
+    }
   } else {
     acc += dt;
     while (acc >= STEP) {
       acc -= STEP;
       if (G.game === 'race') {
+        if (G.mode === 'host') applyRemoteCar();
         for (const c of G.cars) { stepRace(c, STEP / 2); stepRace(c, STEP / 2); raceAfterStep(c, STEP); }
         if (G.cars.length > 1) raceCollide();
         simulateRace(STEP);
@@ -3426,8 +3546,14 @@ function frame() {
     Net.sendT -= dt;
     if (Net.sendT <= 0) {
       Net.sendT = 1 / 30;
-      if (G.mode === 'host' && G.ms !== 'wait') sendState();
-      if (G.mode === 'client') { if (!Net.gotState) Net.send({ t: 'ready' }); Net.send({ t: 'in', a: r2(mine.th), b: r2(mine.st), n: mine.n }); }
+      if (G.mode === 'host' && G.ms !== 'wait' && !Net.busy()) sendState();
+      if (G.mode === 'client') {
+        if (!Net.gotState) Net.send({ t: 'ready' });
+        const msg = { t: 'in', a: r2(mine.th), b: r2(mine.st), n: mine.n };
+        const me = G.cars[myIndex()];
+        if (G.game === 'race' && me && me.localInit) { msg.r = G.round; msg.p = [r2(me.x), r2(me.y), r2(me.z), Math.round(me.yaw * 1000) / 1000, r2(me.vx), r2(me.vz), Math.round(me.av * 1000) / 1000, Math.round(me.steer * 1000) / 1000, me.gear | 0, Math.round(me.rpm || 0), r2(me.slip || 0), me.surf | 0, r2(me.pitch), r2(me.roll), r2(me.th || 0), r2(me.str || 0)]; }
+        Net.sendFast(msg);
+      }
     }
     const limit = G.ms === 'wait' ? 45000 : 9000;
     if (now - Net.lastRecv > limit) { endMatch('Связь потеряна. Проверь интернет.'); return; }
